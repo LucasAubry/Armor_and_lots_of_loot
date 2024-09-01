@@ -69,7 +69,7 @@ int	main(void)
 	while (1)
 	{
 		print_stats(info_hero);
-		print_choice();//shop, fight, save
+		print_choice();//shop, fight, save, quit
 		line = readline(">>> ");
 		if (atoi(line) == 1)
 			shop(info_hero);
@@ -89,8 +89,8 @@ int	main(void)
 		{
 			print_stats(info_hero);
 			reset_stats(info_hero, info_monster);
-			printf("you die like a poop\n\n\n\n\n");
-			usleep(1000000);
+			print_you_die();
+			return (0);// retour au menu mais apres un clique	
 		}
 	}
 }

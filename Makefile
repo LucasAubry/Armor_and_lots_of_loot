@@ -9,13 +9,15 @@ CREAD	=	-lreadline
 
 # Sources and objects
 FILES = main \
-		fight \
+		fight/fight \
+		fight/monster \
 		shop \
 		save \
 		print/print \
 		print/print_monster \
 		print/print_start \
 		print/print_choice \
+		print/print_you_die \
 		animations/santore_animations \
         animations/crab_animations \
         animations/ours_animations
@@ -39,6 +41,7 @@ obj:
 	mkdir -p obj
 	mkdir -p obj/print
 	mkdir -p obj/animations
+	mkdir -p obj/fight
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(CREAD)

@@ -10,6 +10,7 @@
 # include "string.h"
 # include "readline/readline.h"
 # include "readline/history.h"
+# include "time.h"
 # include "animation.h"
 //# include "./../lib/include/libft.h"
 
@@ -53,9 +54,11 @@ int		fight(t_hero *info_hero, t_monster *info_monster);
 void	shop(t_hero *info_hero);
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
-void	print_monster(t_monster_enum monster);
+void	print_monster(t_monster_enum monster, int round);
 void	print_gamestart(void);
 void	print_choice(void);
+void	print_you_die(void);
+t_monster_enum	monster_choice(t_monster *info_monster);
 
 
 

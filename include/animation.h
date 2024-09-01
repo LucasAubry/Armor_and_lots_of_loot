@@ -20,8 +20,8 @@ extern const size_t SANTORE_NUM_FRAMES;
 extern const size_t CRAB_NUM_FRAMES;
 extern const size_t OURS_NUM_FRAMES;
 // Déclaration des fonctions d'animation
-void print_animation(const char *frames[], int num_frames);
-void print_monster(t_monster_enum monster);
+void print_animation(const char *frames[], int num_frames, int round);
+void print_monster(t_monster_enum monster, int round);
 
 #endif
 
