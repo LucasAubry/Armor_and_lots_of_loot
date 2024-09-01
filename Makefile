@@ -14,6 +14,8 @@ FILES = main \
 		save \
 		print/print \
 		print/print_monster \
+		print/print_start \
+		print/print_choice \
 		animations/santore_animations \
         animations/crab_animations \
         animations/ours_animations

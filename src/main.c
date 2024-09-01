@@ -61,6 +61,7 @@ int	main(void)
 	init_hero(info_hero);
 	init_monster(info_monster);
 	
+	print_gamestart();
 	print_save();
 	line = readline("select your save> ");
 	if (!select_save(atoi(line), info_player))
@@ -68,14 +69,19 @@ int	main(void)
 	while (1)
 	{
 		print_stats(info_hero);
-		printf("shop (1), fight (2), save (3)");
-		line = readline("> ");
+		print_choice();//shop, fight, save
+		line = readline(">>> ");
 		if (atoi(line) == 1)
 			shop(info_hero);
 		else if (atoi(line) == 2)
 			result_of_fight = fight(info_hero, info_monster);
 		else if (atoi(line) == 3)
 			save(info_hero, info_monster, info_player);
+		else if (atoi(line) == 4)
+		{
+			printf("au revoir\n");
+			return (0);
+		}
 		else
 			printf("invalide choice\n\n\n\n\n");
 		
@@ -84,7 +90,7 @@ int	main(void)
 			print_stats(info_hero);
 			reset_stats(info_hero, info_monster);
 			printf("you die like a poop\n\n\n\n\n");
-			usleep(100000);
+			usleep(1000000);
 		}
 	}
 }

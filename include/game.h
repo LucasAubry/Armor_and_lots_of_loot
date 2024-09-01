@@ -54,6 +54,8 @@ void	shop(t_hero *info_hero);
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
 void	print_monster(t_monster_enum monster);
+void	print_gamestart(void);
+void	print_choice(void);
 
 
 
