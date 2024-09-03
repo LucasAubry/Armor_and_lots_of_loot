@@ -3,7 +3,6 @@
 
 void	init_heart(t_item *item)
 {
-	item->hp = malloc(sizeof(t_hp));
 	item->hp->low_heart = malloc(sizeof(t_low_heart));
 	item->hp->low_heart->stats = malloc(sizeof(t_item_stats));
 
@@ -29,5 +28,6 @@ void	init_heart(t_item *item)
 
 void	init_hp(t_item *item)
 {
+	item->hp = malloc(sizeof(t_hp));
 	init_heart(item);
 }

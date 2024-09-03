@@ -3,7 +3,6 @@
 
 void	init_wood_sword(t_item *item)
 {
-	item->attack = malloc(sizeof(t_heal));
 	item->attack->wood_sword = malloc(sizeof(t_potion_heal));
 	item->attack->wood_sword->stats = malloc(sizeof(t_item_stats));
 
@@ -23,11 +22,12 @@ void	init_wood_sword(t_item *item)
 	"   ||\n"
 	"   ()\n";
 
-	item->attack->wood_sword->logo = malloc(strlen(logo + 1));
+	item->attack->wood_sword->logo = malloc(strlen(logo) + 1);
 	strcpy(item->attack->wood_sword->logo, logo);
 }
 
 void	init_attack(t_item *item)
 {
+	item->attack = malloc(sizeof(t_heal));
 	init_wood_sword(item);
 }

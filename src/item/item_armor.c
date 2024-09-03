@@ -3,7 +3,6 @@
 
 void	init_wood_shield(t_item *item)
 {
-	item->armor = malloc(sizeof(t_heal));
 	item->armor->wood_shield = malloc(sizeof(t_potion_heal));
 	item->armor->wood_shield->stats = malloc(sizeof(t_item_stats));
 
@@ -28,6 +27,7 @@ void	init_wood_shield(t_item *item)
 
 void	init_armor(t_item *item)
 {
+	item->armor = malloc(sizeof(t_heal));
 	init_wood_shield(item);
 }
 

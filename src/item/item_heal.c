@@ -3,7 +3,7 @@
 
 void	init_potion_heal(t_item *item)
 {
-	item->heal = malloc(sizeof(t_heal));
+
 	item->heal->potion_heal = malloc(sizeof(t_potion_heal));
 	item->heal->potion_heal->stats = malloc(sizeof(t_item_stats));
 
@@ -30,5 +30,6 @@ void	init_potion_heal(t_item *item)
 
 void	init_heal(t_item *item)
 {
+	item->heal = malloc(sizeof(t_heal));
 	init_potion_heal(item);
 }

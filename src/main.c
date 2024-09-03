@@ -54,12 +54,12 @@ int	main(void)
 	t_hero *info_hero = malloc(sizeof(t_hero));
     t_monster *info_monster = malloc(sizeof(t_monster));
     t_player *info_player = malloc(sizeof(t_player));
-//	t_item	*item = malloc(sizeof(t_item));
+	t_item	*item = malloc(sizeof(t_item));
 	char		*line;
 
 	init_hero(info_hero);
 	init_monster(info_monster);
-//	init_items(item);
+	init_items(item);
 	
 	print_gamestart();
 	print_save();
