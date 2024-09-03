@@ -25,7 +25,7 @@ void	print_you_die(void)
     ". \\/             .   \\/     .       \\/.       .       \\/   .\n"
     "   __...--..__..__       .     \\/          .._..     \\/    .._\n"
     "\\/  .   .    \\/     \\/    __..--..     \\/      \\/ ..    \\/.\n"
-	"\n\n\n\n\n\n\n\n\n\n";
+	"\n\n\n\n\n\n\n\n\n\n\n";
 
 	printf("%s", game_over_screen);
 }

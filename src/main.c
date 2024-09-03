@@ -28,14 +28,13 @@ void print_save(void)
             fclose(fichier);
         } else {
             printf("(%d) vide\n", i + 1);
-			fclose(fichier);
         }
     }
 }
 
 void	init_hero(t_hero *info_hero)
 {
-	info_hero->in_live = 1;
+	info_hero->xp = 1;
 	info_hero->hp = 10;
 	info_hero->gold = 0;
 	info_hero->attack = 1;
@@ -44,7 +43,7 @@ void	init_hero(t_hero *info_hero)
 
 void	init_monster(t_monster *info_monster)
 {
-	info_monster->in_live = 1;
+	info_monster->xp = 1;
 	info_monster->hp = 10;
 	info_monster->attack = 1;
 	info_monster->armor = 0;
@@ -56,7 +55,6 @@ int	main(void)
     t_monster *info_monster = malloc(sizeof(t_monster));
     t_player *info_player = malloc(sizeof(t_player));
 	char		*line;
-	int			result_of_fight;
 
 	init_hero(info_hero);
 	init_monster(info_monster);
@@ -70,11 +68,11 @@ int	main(void)
 	{
 		print_stats(info_hero);
 		print_choice();//shop, fight, save, quit
-		line = readline(">>> ");
+		line = readline("> ");
 		if (atoi(line) == 1)
 			shop(info_hero);
 		else if (atoi(line) == 2)
-			result_of_fight = fight(info_hero, info_monster);
+			fight(info_hero, info_monster);
 		else if (atoi(line) == 3)
 			save(info_hero, info_monster, info_player);
 		else if (atoi(line) == 4)
@@ -84,11 +82,8 @@ int	main(void)
 		}
 		else
 			printf("invalide choice\n\n\n\n\n");
-		
-		if (result_of_fight == 0)
+		if (info_hero->hp <= 0)
 		{
-			print_stats(info_hero);
-			reset_stats(info_hero, info_monster);
 			print_you_die();
 			return (0);// retour au menu mais apres un clique	
 		}

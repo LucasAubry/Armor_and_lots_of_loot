@@ -1,10 +1,10 @@
 #include "game.h"
 
-void	print_hp(int hp)
+void print_hp(int hp)
 {
-	int	i = 0;
+	int i = 0;
 
-	printf ("hp >(%d) ", hp);
+	printf ("| HP      : %d | ", hp);
 	while (i != hp)
 	{
 		printf("❤︎ ");
@@ -14,25 +14,25 @@ void	print_hp(int hp)
 	printf("\n");
 }
 
-void	print_gold(long gold)
+void print_gold(long gold)
 {
-	int	i = 0;
+	int i = 0;
 
-	printf ("gold >(%ld) ", gold);
+	printf ("| Gold    : %ld | ", gold);
 	while (i != gold)
 	{
 		printf("💰");
 		i++;
-	usleep(10000);
+		usleep(10000);
 	}
 	printf("\n");
 }
 
-void	print_attack(int attack)
+void print_attack(int attack)
 {
-	int	i = 0;
+	int i = 0;
 
-	printf ("attack >(%d) ", attack);
+	printf ("| Attack  : %d | ", attack);
 	while (i != attack)
 	{
 		printf("🗡 ");
@@ -42,14 +42,14 @@ void	print_attack(int attack)
 	printf("\n");
 }
 
-void	print_armor(int armor)
+void print_armor(int armor)
 {
-	int	i = 0;
+	int i = 0;
 
-	printf ("armor >(%d) ", armor);
+	printf ("| Armor   : %d | ", armor);
 	while (i != armor)
 	{
-		printf("🛡️");
+		printf("🛡️ ");
 		i++;
 		usleep(10000);
 	}
@@ -58,10 +58,12 @@ void	print_armor(int armor)
 
 void	print_stats(t_hero *info_hero)
 {
-	printf("\n\n\n\n\n");
+	printf("\n+----------------------+");
+	printf("\n|       Stats          |");
+	printf("\n+----------------------+\n");
 	print_hp(info_hero->hp);
 	print_gold(info_hero->gold);
 	print_attack(info_hero->attack);
 	print_armor(info_hero->armor);
-	printf("\n\n\n\n\n");
+	printf("+----------------------+\n");
 }

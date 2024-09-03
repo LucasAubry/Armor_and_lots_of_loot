@@ -20,7 +20,9 @@ FILES = main \
 		print/print_you_die \
 		animations/santore_animations \
         animations/crab_animations \
-        animations/ours_animations
+        animations/ours_animations \
+		animations/loose_animations \
+		animations/win_animations
 
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))
