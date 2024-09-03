@@ -1,4 +1,4 @@
-#include "../include/animation.h"
+#include "game.h"
 
 const char *crab_frames[] = {
     "       _\n"

@@ -1,4 +1,4 @@
-#include "../include/animation.h"
+#include "game.h"
 
 const char *ours_frames[] = {
     "  __/\\__\n"

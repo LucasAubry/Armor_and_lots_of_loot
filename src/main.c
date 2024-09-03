@@ -54,10 +54,12 @@ int	main(void)
 	t_hero *info_hero = malloc(sizeof(t_hero));
     t_monster *info_monster = malloc(sizeof(t_monster));
     t_player *info_player = malloc(sizeof(t_player));
+	t_item	*item = malloc(sizeof(t_item));
 	char		*line;
 
 	init_hero(info_hero);
 	init_monster(info_monster);
+	init_items(item);
 	
 	print_gamestart();
 	print_save();
@@ -66,11 +68,10 @@ int	main(void)
 		return (0);
 	while (1)
 	{
-		print_stats(info_hero);
 		print_choice();//shop, fight, save, quit
 		line = readline("> ");
 		if (atoi(line) == 1)
-			shop(info_hero);
+			shop(info_hero, item);
 		else if (atoi(line) == 2)
 			fight(info_hero, info_monster);
 		else if (atoi(line) == 3)
@@ -81,7 +82,10 @@ int	main(void)
 			return (0);
 		}
 		else
-			printf("invalide choice\n\n\n\n\n");
+		{
+			printf("invalide choice\n");
+			usleep(1000000);
+		}
 		if (info_hero->hp <= 0)
 		{
 			print_you_die();

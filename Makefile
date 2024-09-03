@@ -12,6 +12,8 @@ FILES = main \
 		fight/fight \
 		fight/monster \
 		shop \
+		item/item \
+		item/item_attack \
 		save \
 		print/print \
 		print/print_monster \

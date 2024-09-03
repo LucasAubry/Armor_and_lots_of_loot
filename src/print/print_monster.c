@@ -16,9 +16,6 @@ void print_animation(const char *frames[], int num_frames, int *tab, t_hero *inf
             usleep(300000);
         }
     }
-	//gain_calcul(info_hero, tab, monster);
-	//printf("\033[H\033[J");
- 	//print_stats(info_hero);
 }
 
 void print_monster(t_monster_enum monster, int *tab, t_hero *info_hero)
