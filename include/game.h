@@ -57,7 +57,7 @@ typedef struct s_monster
 
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	fight(t_hero *info_hero, t_monster *info_monster);
-void	shop(t_hero *info_hero, t_item *item);
+void	shop(void);//t_hero *info_hero, t_item *item);
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
 void	print_gamestart(void);

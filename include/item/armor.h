@@ -3,11 +3,20 @@
 
 #include "item.h"
 
+typedef struct s_wood_shield
+{
+	struct	t_item_stats *stat;
+	const char	*logo;
+}	t_wood_shield;
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////ITEM_ARMOR//////////////////////////////
+///////////////////////////////////////////////////////////////////
+
 typedef struct s_armor
 {
-	struct t_item_stats *stats
-	const char *logo
-	
-} t_armor;
-#endif
+	t_wood_shield *wood_shiled;	
 
+} t_armor;
+
+#endif

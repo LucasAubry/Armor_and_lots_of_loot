@@ -1,8 +1,9 @@
 #include "game.h"
 
-void	shop(t_hero *info_hero, t_shop *info_shop)
+void	shop(void)//t_hero *info_hero, t_item *item)
 {
 //	print_shop(info_shop):
-	(void)info_hero;
+//	(void)item
+//	(void)info_hero;
 	return ;
 }

@@ -46,6 +46,7 @@ obj:
 	mkdir -p obj/print
 	mkdir -p obj/animations
 	mkdir -p obj/fight
+	mkdir -p obj/item
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(CREAD)
