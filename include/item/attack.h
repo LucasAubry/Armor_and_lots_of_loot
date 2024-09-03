@@ -5,7 +5,7 @@
 
 typedef struct s_wood_sword
 {
-	struct	t_item_stats *stats;
+	struct t_item_stats *stats;
 	const char	*logo;
 
 }	t_wood_sword;

@@ -17,10 +17,10 @@ typedef struct s_item_stats
 
 typedef struct s_item
 {
-	struct t_heal *heal;
-	struct t_hp *hp;
-	struct t_attack *attack;
-	struct t_armor *armor;
+	t_heal *heal;
+	t_hp *hp;
+	t_attack *attack;
+	t_armor *armor;
 
 } t_item;
 
