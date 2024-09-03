@@ -5,8 +5,8 @@
 
 typedef struct s_wood_shield
 {
-	struct	t_item_stats *stat;
-	const char	*logo;
+	t_item_stats *stats;
+	char	*logo;
 }	t_wood_shield;
 
 ///////////////////////////////////////////////////////////////////
@@ -15,7 +15,7 @@ typedef struct s_wood_shield
 
 typedef struct s_armor
 {
-	t_wood_shield *wood_shiled;	
+	t_wood_shield *wood_shield;	
 
 } t_armor;
 

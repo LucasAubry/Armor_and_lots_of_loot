@@ -5,8 +5,8 @@
 
 typedef struct s_potion_heal
 {
-	struct t_item_stats *stats;
-	const char	*logo;
+	t_item_stats *stats;
+	char	*logo;
 
 }	t_potion_heal;
 

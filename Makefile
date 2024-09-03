@@ -14,6 +14,9 @@ FILES = main \
 		shop \
 		item/item \
 		item/item_attack \
+		item/item_armor \
+		item/item_heal \
+		item/item_hp \
 		save \
 		print/print \
 		print/print_monster \

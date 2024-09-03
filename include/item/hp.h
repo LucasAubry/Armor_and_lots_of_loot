@@ -5,8 +5,8 @@
 
 typedef struct s_low_heart
 {
-	struct t_item_stats *stats;
-	const char	*logo;
+	t_item_stats *stats;
+	char	*logo;
 }	t_low_heart;
 
 ///////////////////////////////////////////////////////////////////

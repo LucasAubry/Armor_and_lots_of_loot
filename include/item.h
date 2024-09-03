@@ -1,11 +1,6 @@
 #ifndef ITEM_H
 # define ITEM_H
 
-#include "item/heal.h"
-#include "item/hp.h"
-#include "item/attack.h"
-#include "item/armor.h"
-
 typedef struct s_item_stats
 {
 	int	healing;
@@ -14,6 +9,11 @@ typedef struct s_item_stats
 	int	armor;
 
 } t_item_stats;
+
+#include "item/heal.h"
+#include "item/hp.h"
+#include "item/attack.h"
+#include "item/armor.h"
 
 typedef struct s_item
 {
