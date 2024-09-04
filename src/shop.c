@@ -1,8 +1,20 @@
 #include "game.h"
+#include "item_enum.h"
 
-void	shop(void)//t_hero *info_hero, t_item *item)
+void	print_shop(int	attack_item, int hp_item, int healing_item, int armor_item)
 {
-//	print_shop(info_shop):
+	
+}
+
+void	item_in_shop();
+{
+		
+}
+
+void	shop(t_shop *info_shop, t_hero *info_hero, t_item *item)
+{
+	item_in_shop();
+	print_shop();
 //	(void)item
 //	(void)info_hero;
 	return ;

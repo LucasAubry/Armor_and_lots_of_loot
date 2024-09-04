@@ -55,6 +55,7 @@ int	main(void)
     t_monster *info_monster = malloc(sizeof(t_monster));
     t_player *info_player = malloc(sizeof(t_player));
 	t_item	*item = malloc(sizeof(t_item));
+	t_shop	*info_shop = malloc(sizeof(t_shop));
 	char		*line;
 
 	init_hero(info_hero);
@@ -71,7 +72,7 @@ int	main(void)
 		print_choice();//shop, fight, save, quit
 		line = readline("> ");
 		if (atoi(line) == 1)
-			shop();//info_hero, item);
+			shop(info_shop, info_hero, item);//info_hero, item);
 		else if (atoi(line) == 2)
 			fight(info_hero, info_monster);
 		else if (atoi(line) == 3)

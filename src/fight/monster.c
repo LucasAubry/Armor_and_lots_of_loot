@@ -1,33 +1,9 @@
 #include "game.h"
 
-int choix_aleatoire_pondere(int elements[], int poids[], int taille)
-{
-    int i = 0;
-    int total_poids = 0;
-    int seuil;
-    int choix = 0;
-
-    for (i = 0; i < taille; i++) {
-        total_poids += poids[i];
-    }
-
-    seuil = rand() % total_poids;
-
-    int somme = 0;
-    for (i = 0; i < taille; i++) {
-        somme += poids[i];
-        if (seuil < somme) {
-            choix = elements[i];
-            break;
-        }
-    }
-    return choix;
-}
-
 t_monster_enum randome(void)
 {
     int elements[] = {SANTORE, CRAB, OURS};
-    int poids[] = {10, 0, 0};
+    int poids[] = {10, 0, 0};// modifier les choix en fonction de l'xp
     int taille = sizeof(elements) / sizeof(elements[0]);
 
     return choix_aleatoire_pondere(elements, poids, taille);

@@ -33,7 +33,6 @@ typedef	struct s_player
 
 typedef struct s_hero
 {
-	//t_token_enum	type; // COMMANDE 
 	int				xp;
 	int				hp;
 	long			gold;
@@ -50,6 +49,14 @@ typedef struct s_monster
 	int				armor;
 	struct s_monster	*next;
 }	t_monster;
+
+typedef struct s_shop
+{
+	int attack_item;
+	int	hp_item;
+	int	healing_item;
+	int	armor_item;
+}	t_shop;
 
 /* ========== Error =================*/
 
@@ -69,6 +76,10 @@ void	win_animations(void);
 void	print_animation(const char *frames[], int num_frames, int *tab, t_hero *info_hero);
 void	print_monster(t_monster_enum monster, int *tab, t_hero *info_hero);
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
+
+/*-----------tools-----------*/
+int choix_aleatoire_pondere(int elements[], int poids[], int taille);
+
 
 /*----------ANIMATION--------*/
 extern const char *santore_frames[];

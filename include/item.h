@@ -10,6 +10,15 @@ typedef struct s_item_stats
 
 } t_item_stats;
 
+typedef struct s_universal
+{
+    int 	healing;
+    int 	hp;
+	int		attack;
+	int		armor;
+	char	*logo;
+}           t_universal;
+
 #include "item/heal.h"
 #include "item/hp.h"
 #include "item/attack.h"
