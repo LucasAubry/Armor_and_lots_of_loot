@@ -52,10 +52,14 @@ typedef struct s_monster
 
 typedef struct s_shop
 {
-	int attack_item;
-	int	hp_item;
-	int	healing_item;
-	int	armor_item;
+	t_item_stats	*item_1;
+	char			*logo_item_1;	
+	t_item_stats	*item_2;
+	char			*logo_item_2;	
+	t_item_stats	*item_3;
+	char			*logo_item_3;	
+	t_item_stast	*item_4;
+	char			*logo_item_4;	
 }	t_shop;
 
 /* ========== Error =================*/
@@ -64,7 +68,8 @@ typedef struct s_shop
 
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	fight(t_hero *info_hero, t_monster *info_monster);
-void	shop(void);//t_hero *info_hero, t_item *item);
+
+void	shop(t_shop *info_shop, t_hero *info_hero, t_item *item);
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
 void	print_gamestart(void);

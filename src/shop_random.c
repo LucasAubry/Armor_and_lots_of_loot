@@ -1,7 +1,7 @@
 #include "game.h"
 #include "item_enum.h"
 
-t_universal *test(t_item *item)
+t_universal *get_item(t_item *item, t_universal *result)
 {
 	int	i = 0;
 	int	poids[] = {1, 1, 1, 1};
@@ -16,7 +16,7 @@ t_universal *test(t_item *item)
 	taille = sizeof(tab) / sizeof(tab[0]);
 	i = choix_aleatoir_ponderer(tab, poids, taille);
 
-    t_universal *result = malloc(sizeof(t_universal)); //malloc car on va return
+   //t_universal *result = malloc(sizeof(t_universal)); //malloc car on va return
     result->healing = tab[i].healing; //on donne a notre resultat les stats de la potion
     result->hp = tab[i].hp;
     result->attack = tab[i].attack;

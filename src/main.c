@@ -41,6 +41,14 @@ void	init_hero(t_hero *info_hero)
 	info_hero->armor = 0;
 }
 
+void	init_shop(t_shop *info_shop)
+{
+	info_shop->logo_item_1 = NULL;
+	info_shop->logo_item_2 = NULL;
+	info_shop->logo_item_3 = NULL;
+	info_shop->logo_item_4 = NULL;
+}
+
 void	init_monster(t_monster *info_monster)
 {
 	info_monster->xp = 1;
@@ -56,11 +64,13 @@ int	main(void)
     t_player *info_player = malloc(sizeof(t_player));
 	t_item	*item = malloc(sizeof(t_item));
 	t_shop	*info_shop = malloc(sizeof(t_shop));
+
 	char		*line;
 
 	init_hero(info_hero);
 	init_monster(info_monster);
 	init_items(item);
+	init_shop(info_shop);
 	
 	print_gamestart();
 	print_save();
