@@ -10,6 +10,7 @@ void	init_wood_shield(t_item *item)
 	item->armor->wood_shield->stats->hp = 0;	
 	item->armor->wood_shield->stats->attack = 0;	
 	item->armor->wood_shield->stats->armor = 1;	
+	item->armor->wood_shield->stats->name = "wood shield";
 	item->armor->wood_shield->id = 2;
 
 	const char *logo =

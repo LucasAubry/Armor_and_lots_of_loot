@@ -10,11 +10,12 @@ void	init_heart(t_item *item)
 	item->hp->low_heart->stats->hp = 1;
 	item->hp->low_heart->stats->attack = 0;
 	item->hp->low_heart->stats->armor = 0;
+	item->hp->low_heart->stats->name = "1 heart";
 	item->hp->low_heart->id = 4;
 
 	const char *logo =
-	"   ____  ____   \n"
-	"  /    \\/    \\  \n"
+	"   ___  ___   \n"
+	"  /   \\/   \\  \n"
 	" /.  .    . \\  \n"
 	" \\   .      /  \n"
 	"  \\     .  /   \n"

@@ -54,12 +54,16 @@ typedef struct s_shop
 {
 	t_item_stats	*item_1;
 	char			*logo_item_1;	
+	char			*name_item_1;
 	t_item_stats	*item_2;
 	char			*logo_item_2;	
+	char			*name_item_2;
 	t_item_stats	*item_3;
 	char			*logo_item_3;	
+	char			*name_item_3;
 	t_item_stats	*item_4;
 	char			*logo_item_4;	
+	char			*name_item_4;
 }	t_shop;
 
 /* ========== Error =================*/
@@ -70,7 +74,6 @@ void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	fight(t_hero *info_hero, t_monster *info_monster);
 
 void	shop(t_shop *info_shop, t_item *item);
-//void	get_item(t_item *item, t_universal *result);
 
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
@@ -86,7 +89,6 @@ void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
 
 /*-----------tools-----------*/
 int choix_aleatoire_pondere(int elements[], int poids[], int taille);
-//int choix_aleatoire_pondere_universal(int poids[], int taille);
 
 /*----------init-------------*/
 void	init_hero(t_hero *info_hero);

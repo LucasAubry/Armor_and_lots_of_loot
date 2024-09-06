@@ -10,6 +10,7 @@ void	init_wood_sword(t_item *item)
 	item->attack->wood_sword->stats->hp = 0;	
 	item->attack->wood_sword->stats->attack = 3;	
 	item->attack->wood_sword->stats->armor = 0;	
+	item->attack->wood_sword->stats->name = "wood sword";
 	item->attack->wood_sword->id = 1;
 	
 	const char *logo =

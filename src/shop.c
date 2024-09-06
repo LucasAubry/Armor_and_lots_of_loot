@@ -8,6 +8,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_1->attack = stats->attack;
 		shop->item_1->healing = stats->healing;
 		shop->item_1->hp = stats->hp;
+		shop->item_1->name = stats->name;
 		shop->logo_item_1 = logo;
 	}
 	else if (place_in_shop == 2)
@@ -16,6 +17,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_2->attack = stats->attack;
 		shop->item_2->healing = stats->healing;
 		shop->item_2->hp = stats->hp;
+		shop->item_2->name = stats->name;
 		shop->logo_item_2 = logo;
 	}
 	else if (place_in_shop == 3)
@@ -24,6 +26,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_3->attack = stats->attack;
 		shop->item_3->healing = stats->healing;
 		shop->item_3->hp = stats->hp;
+		shop->item_3->name = stats->name;
 		shop->logo_item_3 = logo;
 	}
 	else if (place_in_shop == 4)
@@ -32,6 +35,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_4->attack = stats->attack;
 		shop->item_4->healing = stats->healing;
 		shop->item_4->hp = stats->hp;
+		shop->item_4->name = stats->name;
 		shop->logo_item_4 = logo;
 	}
 }	
@@ -68,25 +72,29 @@ void	select_item_inshop(t_item *item, t_shop *shop, int place_in_shop)
 
 void	print_shop(t_shop *shop)
 {
-		printf("shop item 1 : %d, %d, %d, %d, %s\n",
+		printf("%s : %d, %d, %d, %d, \n%s\n",
+			   shop->item_1->name,
 		       shop->item_1->healing,
 		       shop->item_1->hp,
 		       shop->item_1->attack,
 		       shop->item_1->armor,
-		       shop->logo_item_1)
-		printf("shop item 2 : %d, %d, %d, %d, %s\n",
+		       shop->logo_item_1);
+		printf("%s : %d, %d, %d, %d, \n%s\n",
+			   shop->item_2->name,
 		       shop->item_2->healing,
 		       shop->item_2->hp,
 		       shop->item_2->attack,
 		       shop->item_2->armor,
 		       shop->logo_item_2);
-		printf("shop item 3 : %d, %d, %d, %d, %s\n",
+		printf("%s : %d, %d, %d, %d,\n%s\n",
+			   shop->item_3->name,
 		       shop->item_3->healing,
 		       shop->item_3->hp,
 		       shop->item_3->attack,
 		       shop->item_3->armor,
 		       shop->logo_item_3);
-		printf("shop item 4 : %d, %d, %d, %d, %s\n",
+		printf("%s : %d, %d, %d, %d, \n%s\n",
+			   shop->item_4->name,
 		       shop->item_4->healing,
 		       shop->item_4->hp,
 		       shop->item_4->attack,
@@ -97,11 +105,12 @@ void	print_shop(t_shop *shop)
 void	shop(t_shop *shop, t_item *item)
 {
 	int	place_in_shop = 0;
+	char	*line;
 	while (place_in_shop != 5)
 	{
 		select_item_inshop(item, shop, place_in_shop);
 		place_in_shop++;
 	}
 	print_shop(shop);
-	usleep(100000000);
+	line = readline(">");
 }

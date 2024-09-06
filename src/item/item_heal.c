@@ -11,17 +11,18 @@ void	init_potion_heal(t_item *item)
 	item->heal->potion_heal->stats->hp = 0;
 	item->heal->potion_heal->stats->attack = 0;
 	item->heal->potion_heal->stats->armor = 0;
+	item->heal->potion_heal->stats->name = "heal potion";
 	item->heal->potion_heal->id = 3;
 
     const char *logo =
     "       O .        \n"
     "   o .    .    \n"
     "  .+----+        \n"
-    "    |   | .    \n"
-    "   |   |        \n"
-    "  /   \\        \n"
-    " /-------\\    \n"
-    "/           \\  \n"
+    "   |    | .    \n"
+    "   |    |        \n"
+    "  /      \\        \n"
+    " /--------\\    \n"
+    "/          \\  \n"
 	"+___________+  \n";
 
     item->heal->potion_heal->logo = malloc(strlen(logo) + 1);
