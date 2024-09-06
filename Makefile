@@ -24,6 +24,7 @@ FILES = main \
 		print/print_start \
 		print/print_choice \
 		print/print_you_die \
+		print/print_shop \
 		animations/santore_animations \
         animations/crab_animations \
         animations/ours_animations \

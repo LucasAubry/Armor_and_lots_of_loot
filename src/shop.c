@@ -66,40 +66,7 @@ void	select_item_inshop(t_item *item, t_shop *shop, int place_in_shop)
 	int	poids[] = {1, 1, 1, 1};
 	int taille = sizeof(element) / sizeof(element[0]);
 	int	i = choix_aleatoire_pondere(element, poids, taille);
-	printf("i: %d\n", i);
 	item_selected(item, shop, i, place_in_shop);
-}
-
-void	print_shop(t_shop *shop)
-{
-		printf("%s : %d, %d, %d, %d, \n%s\n",
-			   shop->item_1->name,
-		       shop->item_1->healing,
-		       shop->item_1->hp,
-		       shop->item_1->attack,
-		       shop->item_1->armor,
-		       shop->logo_item_1);
-		printf("%s : %d, %d, %d, %d, \n%s\n",
-			   shop->item_2->name,
-		       shop->item_2->healing,
-		       shop->item_2->hp,
-		       shop->item_2->attack,
-		       shop->item_2->armor,
-		       shop->logo_item_2);
-		printf("%s : %d, %d, %d, %d,\n%s\n",
-			   shop->item_3->name,
-		       shop->item_3->healing,
-		       shop->item_3->hp,
-		       shop->item_3->attack,
-		       shop->item_3->armor,
-		       shop->logo_item_3);
-		printf("%s : %d, %d, %d, %d, \n%s\n",
-			   shop->item_4->name,
-		       shop->item_4->healing,
-		       shop->item_4->hp,
-		       shop->item_4->attack,
-		       shop->item_4->armor,
-		       shop->logo_item_4);
 }
 
 void	shop(t_shop *shop, t_item *item)

@@ -86,6 +86,8 @@ void	win_animations(void);
 void	print_animation(const char *frames[], int num_frames, int *tab, t_hero *info_hero);
 void	print_monster(t_monster_enum monster, int *tab, t_hero *info_hero);
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
+void	print_shop(t_shop *shop);
+
 
 /*-----------tools-----------*/
 int choix_aleatoire_pondere(int elements[], int poids[], int taille);
