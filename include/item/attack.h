@@ -5,11 +5,9 @@
 
 typedef struct s_wood_sword
 {
-
-	wood_sword->stats->attack = 1;
 	t_item_stats *stats;
 	char	*logo;
-
+	int		id;
 }	t_wood_sword;
 
 ///////////////////////////////////////////////////////////////////

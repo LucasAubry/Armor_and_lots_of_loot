@@ -32,31 +32,6 @@ void print_save(void)
     }
 }
 
-void	init_hero(t_hero *info_hero)
-{
-	info_hero->xp = 1;
-	info_hero->hp = 10;
-	info_hero->gold = 0;
-	info_hero->attack = 1;
-	info_hero->armor = 0;
-}
-
-void	init_shop(t_shop *info_shop)
-{
-	info_shop->logo_item_1 = NULL;
-	info_shop->logo_item_2 = NULL;
-	info_shop->logo_item_3 = NULL;
-	info_shop->logo_item_4 = NULL;
-}
-
-void	init_monster(t_monster *info_monster)
-{
-	info_monster->xp = 1;
-	info_monster->hp = 10;
-	info_monster->attack = 1;
-	info_monster->armor = 0;
-}
-
 int	main(void)
 {
 	t_hero *info_hero = malloc(sizeof(t_hero));
@@ -69,7 +44,7 @@ int	main(void)
 
 	init_hero(info_hero);
 	init_monster(info_monster);
-	init_items(item);
+	init_item(item);
 	init_shop(info_shop);
 	
 	print_gamestart();
@@ -82,7 +57,7 @@ int	main(void)
 		print_choice();//shop, fight, save, quit
 		line = readline("> ");
 		if (atoi(line) == 1)
-			shop(info_shop, info_hero, item);//info_hero, item);
+			shop(info_shop, item);//info_hero);
 		else if (atoi(line) == 2)
 			fight(info_hero, info_monster);
 		else if (atoi(line) == 3)

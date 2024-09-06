@@ -7,6 +7,7 @@ typedef struct s_wood_shield
 {
 	t_item_stats *stats;
 	char	*logo;
+	int		id;
 }	t_wood_shield;
 
 ///////////////////////////////////////////////////////////////////

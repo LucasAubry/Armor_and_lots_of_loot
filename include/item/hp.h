@@ -7,6 +7,7 @@ typedef struct s_low_heart
 {
 	t_item_stats *stats;
 	char	*logo;
+	int		id;
 }	t_low_heart;
 
 ///////////////////////////////////////////////////////////////////

@@ -7,6 +7,7 @@ typedef struct s_potion_heal
 {
 	t_item_stats *stats;
 	char	*logo;
+	int		id;
 }	t_potion_heal;
 
 ///////////////////////////////////////////////////////////////////

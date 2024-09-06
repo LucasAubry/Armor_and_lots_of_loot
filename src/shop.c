@@ -1,48 +1,107 @@
 #include "game.h"
-#include "item_enum.h"
 
-//void	print_shop(t_shop *info_shop)
-//{
-//		
-//}
-
-void	put_in_shop(t_shop *shop, t_universal *result, int i)
+void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place_in_shop)
 {
-	if (i == 1)
+	if (place_in_shop == 1)
 	{
-		shop->stats->healing = result->healing;
-		shop->logo = result->logo;
+		shop->item_1->armor = stats->armor;
+		shop->item_1->attack = stats->attack;
+		shop->item_1->healing = stats->healing;
+		shop->item_1->hp = stats->hp;
+		shop->logo_item_1 = logo;
 	}
-	else if (i == 2)
+	else if (place_in_shop == 2)
 	{
-		shop->stats->attack = result->attack;
-		shop->logo = result->logo;
+		shop->item_2->armor = stats->armor;
+		shop->item_2->attack = stats->attack;
+		shop->item_2->healing = stats->healing;
+		shop->item_2->hp = stats->hp;
+		shop->logo_item_2 = logo;
 	}
-	else if (i == 3)
+	else if (place_in_shop == 3)
 	{
-		shop->stats->hp = result->hp;
-		shop->logo = result->logo;
+		shop->item_3->armor = stats->armor;
+		shop->item_3->attack = stats->attack;
+		shop->item_3->healing = stats->healing;
+		shop->item_3->hp = stats->hp;
+		shop->logo_item_3 = logo;
 	}
-	else if (i == 4)
+	else if (place_in_shop == 4)
 	{
-		shop->stats->armor = result->armor;
-		shop->logo = result->logo;
+		shop->item_4->armor = stats->armor;
+		shop->item_4->attack = stats->attack;
+		shop->item_4->healing = stats->healing;
+		shop->item_4->hp = stats->hp;
+		shop->logo_item_4 = logo;
 	}
+}	
+
+void	item_selected(t_item *item, t_shop *shop, int i, int place_in_shop)
+{
+	if (i == item->armor->wood_shield->id)
+		copy_stats_in_shop(item->armor->wood_shield->stats, 
+				item->armor->wood_shield->logo, shop, place_in_shop);
+
+	else if (i == item->attack->wood_sword->id)
+		copy_stats_in_shop(item->attack->wood_sword->stats, 
+				item->attack->wood_sword->logo, shop, place_in_shop);
+
+	else if (i == item->heal->potion_heal->id)
+		copy_stats_in_shop(item->heal->potion_heal->stats, 
+				item->heal->potion_heal->logo, shop, place_in_shop);
+
+	else if (i == item->hp->low_heart->id)
+		copy_stats_in_shop(item->hp->low_heart->stats, 
+				item->hp->low_heart->logo, shop, place_in_shop);
+	//esle if (i == item->
 }
 
-void	select_item_inshop(t_item *item, t_shop *shop);
+void	select_item_inshop(t_item *item, t_shop *shop, int place_in_shop)
 {
-	t_universal *result = malloc(sizeof(t_universal));
-	t_universal *item_selected = get_item(item, result);
-	put_in_shop(shop, result, 2);
-	free(result);
+	int	element[] = {1, 2, 3, 4};
+	int	poids[] = {1, 1, 1, 1};
+	int taille = sizeof(element) / sizeof(element[0]);
+	int	i = choix_aleatoire_pondere(element, poids, taille);
+	printf("i: %d\n", i);
+	item_selected(item, shop, i, place_in_shop);
 }
 
-void	shop(t_shop *info_shop, t_hero *info_hero, t_item *item)
+void	print_shop(t_shop *shop)
 {
-	select_item_inshop(item, shop);
-//	print_shop();
-//	(void)item
-//	(void)info_hero;
-	return ;
+		printf("shop item 1 : %d, %d, %d, %d, %s\n",
+		       shop->item_1->healing,
+		       shop->item_1->hp,
+		       shop->item_1->attack,
+		       shop->item_1->armor,
+		       shop->logo_item_1)
+		printf("shop item 2 : %d, %d, %d, %d, %s\n",
+		       shop->item_2->healing,
+		       shop->item_2->hp,
+		       shop->item_2->attack,
+		       shop->item_2->armor,
+		       shop->logo_item_2);
+		printf("shop item 3 : %d, %d, %d, %d, %s\n",
+		       shop->item_3->healing,
+		       shop->item_3->hp,
+		       shop->item_3->attack,
+		       shop->item_3->armor,
+		       shop->logo_item_3);
+		printf("shop item 4 : %d, %d, %d, %d, %s\n",
+		       shop->item_4->healing,
+		       shop->item_4->hp,
+		       shop->item_4->attack,
+		       shop->item_4->armor,
+		       shop->logo_item_4);
+}
+
+void	shop(t_shop *shop, t_item *item)
+{
+	int	place_in_shop = 0;
+	while (place_in_shop != 5)
+	{
+		select_item_inshop(item, shop, place_in_shop);
+		place_in_shop++;
+	}
+	print_shop(shop);
+	usleep(100000000);
 }

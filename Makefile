@@ -12,12 +12,12 @@ FILES = main \
 		fight/fight \
 		fight/monster \
 		shop \
-		shop_random \
 		item/item \
 		item/item_attack \
 		item/item_armor \
 		item/item_heal \
 		item/item_hp \
+		init_all \
 		save \
 		print/print \
 		print/print_monster \
@@ -28,7 +28,8 @@ FILES = main \
         animations/crab_animations \
         animations/ours_animations \
 		animations/loose_animations \
-		animations/win_animations
+		animations/win_animations \
+		tools
 
 
 SRCS = $(addprefix src/, $(addsuffix .c, $(FILES)))

@@ -1,0 +1,8 @@
+note pour moi :
+
+id des items :
+
+wood_sword = 1;
+wood_shield = 2;
+potion_heal = 3;
+low_heart = 4;
