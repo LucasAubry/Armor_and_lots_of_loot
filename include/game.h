@@ -53,7 +53,7 @@ typedef struct s_monster
 typedef struct s_shop
 {
 	t_item_stats	*item_1;
-	char			*logo_item_1;	
+	char			*logo_item_1;
 	char			*name_item_1;
 	t_item_stats	*item_2;
 	char			*logo_item_2;	
@@ -73,7 +73,7 @@ typedef struct s_shop
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	fight(t_hero *info_hero, t_monster *info_monster);
 
-void	shop(t_shop *info_shop, t_item *item);
+void	shop(t_shop *info_shop, t_item *item, t_hero *hero);
 
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
@@ -86,7 +86,7 @@ void	win_animations(void);
 void	print_animation(const char *frames[], int num_frames, int *tab, t_hero *info_hero);
 void	print_monster(t_monster_enum monster, int *tab, t_hero *info_hero);
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
-void	print_shop(t_shop *shop);
+void	print_shop(t_shop *shop, t_hero *hero);
 void	print_bannier_shop(void);
 
 

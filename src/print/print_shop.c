@@ -56,36 +56,36 @@ void	print_bannier_shop(void)
 "                                      \n");
 }
 
-void	print_shop(t_shop *shop)
+void	print_shop(t_shop *shop, t_hero *hero)
 {
   		printf("\033[H\033[J");
-		printf("       %-30s %s\n", shop->item_1->name, shop->item_2->name);
+		print_stats(hero);
+	  //  printf("\n");
+		printf("         %-30s %s\n", shop->item_1->name, shop->item_2->name);
+		printf("            %d💰%28s%d💰\n", shop->item_1->price, "", shop->item_2->price);
 		print_side_by_side(shop->logo_item_1, shop->logo_item_2);
-		printf("heal   : %d                      heal   : %d\n"
-			   "hp     : %d                      hp     : %d\n"
-			   "attack : %d                      attack : %d\n"
-			   "armor  : %d                      armor  : %d\n",
+		printf("heal   : %d  hp   : %d           heal   : %d   hp   : %d\n"
+			   "attack : %d  armor   : %d        attack : %d   armor   : %d\n",
 		       shop->item_1->healing,
 		       shop->item_1->hp,
+			   shop->item_2->healing,
+			   shop->item_2->hp,
 		       shop->item_1->attack,
 		       shop->item_1->armor,
-		       shop->item_2->healing,
-		       shop->item_2->hp,
 		       shop->item_2->attack,
 		       shop->item_2->armor);
-		printf("\n\n\n\n\n");	
-		printf("       %-30s %s\n", shop->item_3->name, shop->item_4->name);
+		printf("\n\n");	
+		printf("         %-30s %s\n", shop->item_3->name, shop->item_4->name);
+		printf("            %d💰%28s%d💰\n", shop->item_3->price, "", shop->item_4->price);
 		print_side_by_side(shop->logo_item_3, shop->logo_item_4);
-		printf("heal   : %d                      heal   : %d\n"
-			   "hp     : %d                      hp     : %d\n"
-			   "attack : %d                      attack : %d\n"
-			   "armor  : %d                      armor  : %d\n",
+		printf("heal   : %d  hp   : %d           heal   : %d   hp   : %d\n"
+			   "attack : %d  armor   : %d        attack : %d   armor   : %d\n",
 		       shop->item_3->healing,
 		       shop->item_3->hp,
+			   shop->item_4->healing,
+			   shop->item_4->hp,
 		       shop->item_3->attack,
 		       shop->item_3->armor,
-		       shop->item_4->healing,
-		       shop->item_4->hp,
 		       shop->item_4->attack,
 		       shop->item_4->armor);
 }

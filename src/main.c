@@ -57,7 +57,7 @@ int	main(void)
 		print_choice();//shop, fight, save, quit
 		line = readline("> ");
 		if (atoi(line) == 1)
-			shop(info_shop, item);//info_hero);
+			shop(info_shop, item, info_hero);
 		else if (atoi(line) == 2)
 			fight(info_hero, info_monster);
 		else if (atoi(line) == 3)

@@ -11,6 +11,7 @@ void	init_heart(t_item *item)
 	item->hp->low_heart->stats->attack = 0;
 	item->hp->low_heart->stats->armor = 0;
 	item->hp->low_heart->stats->name = "1 heart";
+	item->hp->low_heart->stats->price = 5;
 	item->hp->low_heart->id = 4;
 
 	const char *logo =

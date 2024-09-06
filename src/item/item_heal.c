@@ -12,6 +12,7 @@ void	init_potion_heal(t_item *item)
 	item->heal->potion_heal->stats->attack = 0;
 	item->heal->potion_heal->stats->armor = 0;
 	item->heal->potion_heal->stats->name = "heal potion";
+	item->heal->potion_heal->stats->price = 1;
 	item->heal->potion_heal->id = 3;
 
     const char *logo =

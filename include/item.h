@@ -7,6 +7,7 @@ typedef struct s_item_stats
 	int	hp;
 	int	attack;
 	int	armor;
+	int	price;
 	char	*name;
 
 }	t_item_stats;
