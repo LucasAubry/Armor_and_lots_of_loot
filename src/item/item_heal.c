@@ -15,15 +15,23 @@ void	init_potion_heal(t_item *item)
 	item->heal->potion_heal->id = 3;
 
     const char *logo =
-    "       O .        \n"
-    "   o .    .    \n"
-    "  .+----+        \n"
-    "   |    | .    \n"
-    "   |    |        \n"
-    "  /      \\        \n"
-    " /--------\\    \n"
-    "/          \\  \n"
-	"+___________+  \n";
+	"__________________________\n"
+	"|\\ ____________________ /|\n"
+	"| | _                _ | |\n"
+	"| |(+)         O    (+)| |\n"
+	"| | ~     o .    .   ~ | |\n"
+	"| |      .+----+  .    | |\n"
+	"| |       |    |       | |\n"
+	"| |       |    |   .   | |\n"
+	"| |      /      \\      | |\n"
+	"| |     /--------\\     | |\n"
+	"| |    /          \\    | |\n"
+	"| |    +__________+    | |\n"
+	"| |                    | |\n"
+	"| |(+)              (+)| |\n"
+	"| | ~                ~ | |\n"
+	"|/ -------------------- \\|\n"
+	" ------------------------ \n";
 
     item->heal->potion_heal->logo = malloc(strlen(logo) + 1);
     strcpy(item->heal->potion_heal->logo, logo);
@@ -35,3 +43,8 @@ void	init_heal(t_item *item)
 	item->heal = malloc(sizeof(t_heal));
 	init_potion_heal(item);
 }
+
+
+
+
+

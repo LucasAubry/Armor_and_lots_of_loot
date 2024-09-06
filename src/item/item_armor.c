@@ -14,14 +14,23 @@ void	init_wood_shield(t_item *item)
 	item->armor->wood_shield->id = 2;
 
 	const char *logo =
-    "|`-._/\\_.-`|\n"
-    "|    ||    |\n"
-    "|____||____|\n"
-    "|    ||    |\n"
-    "\\    ||    /\n"
-    " \\   ||   / \n"
-    "  \\  ||  /	 \n"
-    "   '.||.'	 \n";
+	"__________________________\n"
+	"|\\ ____________________ /|\n"
+	"| | _                _ | |\n"
+	"| |(+)              (+)| |\n"
+	"| | ~                ~ | |\n"
+	"| |    |`-._/\\_.-`|    | |\n"
+	"| |    |    ||    |    | |\n"
+	"| |    |____||____|    | |\n"
+	"| |    |    ||    |    | |\n"
+	"| |    \\    ||    /    | |\n"
+	"| |     \\   ||   /     | |\n"
+	"| |      \\  ||  /      | |\n"
+	"| |       '.||.'       | |\n"
+	"| |(+)              (+)| |\n"
+	"| | ~                ~ | |\n"
+	"|/ -------------------- \\|\n"
+	" ------------------------ \n";
 
 	item->armor->wood_shield->logo = malloc(strlen(logo) + 1);
 	strcpy(item->armor->wood_shield->logo, logo);
@@ -32,4 +41,4 @@ void	init_armor(t_item *item)
 	item->armor = malloc(sizeof(t_heal));
 	init_wood_shield(item);
 }
-
+	

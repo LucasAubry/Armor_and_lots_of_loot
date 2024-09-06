@@ -14,15 +14,23 @@ void	init_wood_sword(t_item *item)
 	item->attack->wood_sword->id = 1;
 	
 	const char *logo =
-	"   /\\\n"
-	"   ||\n"
-	"   ||\n"
-	"   ||\n"
-	"__/__\\__\n"
-	"   ||\n"
-	"   ||\n"
-	"   ||\n"
-	"   ()\n";
+	"__________________________\n"
+	"|\\ ____________________ /|\n"
+	"| | _                _ | |\n"
+	"| |(+)              (+)| |\n"
+	"| | ~                ~ | |\n"
+	"| |         /\\         | |\n"
+	"| |         ||         | |\n"
+	"| |         ||         | |\n"
+	"| |         ||         | |\n"
+	"| |      __/__\\__      | |\n"
+	"| |         ||         | |\n"
+	"| |         ||         | |\n"
+	"| |         ||         | |\n"
+	"| |(+)      ()      (+)| |\n"
+	"| | ~                ~ | |\n"
+	"|/ -------------------- \\|\n"
+	" ------------------------ \n";
 
 	item->attack->wood_sword->logo = malloc(strlen(logo) + 1);
 	strcpy(item->attack->wood_sword->logo, logo);
@@ -33,3 +41,7 @@ void	init_attack(t_item *item)
 	item->attack = malloc(sizeof(t_heal));
 	init_wood_sword(item);
 }
+
+
+
+

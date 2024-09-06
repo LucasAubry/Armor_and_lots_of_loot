@@ -78,6 +78,9 @@ void	shop(t_shop *shop, t_item *item)
 		select_item_inshop(item, shop, place_in_shop);
 		place_in_shop++;
 	}
+  	printf("\033[H\033[J");
+	print_bannier_shop();
+	line = readline("");
 	print_shop(shop);
 	line = readline(">");
 }
