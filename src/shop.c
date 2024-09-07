@@ -67,29 +67,33 @@ void	item_selected(t_item *item, t_shop *shop, int i, int place_in_shop)
 void	select_item_inshop(t_item *item, t_shop *shop, int place_in_shop)
 {
 	int	element[] = {1, 2, 3, 4};
-	int	poids[] = {1, 1, 1, 1};
+	int	poids[] = {1, 1, 1, 1};//en fonnction de l'xp
 	int taille = sizeof(element) / sizeof(element[0]);
 	int	i = choix_aleatoire_pondere(element, poids, taille);
 	item_selected(item, shop, i, place_in_shop);
 }
 
-void	shop(t_shop *shop, t_item *item, t_hero *hero)
+void	change_shop(t_item *item, t_shop *shop)
 {
 	int	place_in_shop = 0;
-
-	char	*line;
 	while (place_in_shop != 5)
 	{
 		select_item_inshop(item, shop, place_in_shop);
 		place_in_shop++;
 	}
+}
+
+void	shop(t_shop *shop, t_item *item, t_hero *hero)
+{
+	char	*line;
+
   	printf("\033[H\033[J");
 	print_bannier_shop();
 	line = readline("do you want go to shop ?\n>");
 	if (!strcmp(line, "no") || (!strcmp(line, "No")))
 		return ;
 	print_shop(shop, hero);
-	printf("exit for exit");
+	printf("exit for exit\n\n");
 	line = readline(">");
 	if (!strcmp(line, "exit"))
 		return ;

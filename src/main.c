@@ -39,7 +39,6 @@ int	main(void)
     t_player *info_player = malloc(sizeof(t_player));
 	t_item	*item = malloc(sizeof(t_item));
 	t_shop	*info_shop = malloc(sizeof(t_shop));
-	t_inventory *inventory = malloc(sizeof(t_inventory));
 
 	char		*line;
 
@@ -47,7 +46,7 @@ int	main(void)
 	init_monster(info_monster);
 	init_item(item);
 	init_shop(info_shop);
-	init_inventory(inventory);
+	change_shop(item, info_shop);
 	
 	print_gamestart();
 	print_save();
@@ -61,7 +60,7 @@ int	main(void)
 		if (atoi(line) == 1)
 			shop(info_shop, item, info_hero);
 		else if (atoi(line) == 2)
-			fight(info_hero, info_monster);
+			fight(info_hero, info_monster, item, info_shop);
 		else if (atoi(line) == 3)
 			save(info_hero, info_monster, info_player);
 		else if (atoi(line) == 4)

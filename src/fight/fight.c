@@ -49,7 +49,7 @@ void	reset_stats(t_hero *info_hero, t_monster *info_monster)
 	info_monster->armor = 0;
 }
 
-void	fight(t_hero *info_hero, t_monster *info_monster)
+void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *shop)
 {
 	t_monster_enum monster;
 	int	tab[3];
@@ -78,7 +78,10 @@ void	fight(t_hero *info_hero, t_monster *info_monster)
   	    		loose_animations();
   	    	}
   	    	else // win one fight
+			{
+				change_shop(item, shop);
   	    		win_animations();
+			}
   	    	boucle--;
   	    }
   	    line = readline("\nif you want to chain the fights in a loop write the number of times you want to loop\n> ");
