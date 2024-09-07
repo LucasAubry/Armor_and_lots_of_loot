@@ -12,6 +12,7 @@ FILES = main \
 		fight/fight \
 		fight/monster \
 		shop \
+		shop_buying \
 		item/item \
 		item/item_attack \
 		item/item_armor \

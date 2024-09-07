@@ -7,6 +7,13 @@ void	init_hero(t_hero *info_hero)
 	info_hero->gold = 0;
 	info_hero->attack = 1;
 	info_hero->armor = 0;
+
+	info_hero->inventory->item_1->name = NULL;
+	info_hero->inventory->item_2->name = NULL;
+	info_hero->inventory->item_3->name = NULL;
+	info_hero->inventory->item_4->name = NULL;
+	info_hero->inventory->item_5->name = NULL;
+	//init le rest des item
 }
 
 void	init_shop(t_shop *info_shop)
@@ -43,6 +50,22 @@ void	init_shop(t_shop *info_shop)
 	info_shop->item_4->armor = 0;
 	info_shop->item_4->name = "Nothing";
 	info_shop->logo_item_4 = NULL;
+}
+
+void	init_inventory(t_inventory *inventory)
+{
+	inventory->item_1 = malloc(sizeof(t_item_stats));
+    inventory->item_2 = malloc(sizeof(t_item_stats));
+    inventory->item_3 = malloc(sizeof(t_item_stats));
+    inventory->item_4 = malloc(sizeof(t_item_stats));
+	inventory->item_5 = malloc(sizeof(t_item_stats));
+	
+	inventory->item_1->name = NULL;
+	inventory->item_2->name = NULL;
+	inventory->item_3->name = NULL;
+	inventory->item_4->name = NULL;
+	inventory->item_5->name = NULL;
+	//init le reste de item comme sur init_shop
 }
 
 void	init_monster(t_monster *info_monster)

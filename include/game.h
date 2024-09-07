@@ -25,20 +25,28 @@ typedef enum s_monster_enum
 
 /* ========== STRUCTURE ============= */
 
+typedef struct s_inventory
+{
+	t_item_stats	*item_1;	
+	t_item_stats	*item_2;	
+	t_item_stats	*item_3;	
+	t_item_stats	*item_4;	
+	t_item_stats	*item_5;	
+}	t_inventory;
+
 typedef	struct s_player
 {
 	int			save;
-	int			door;
 }	t_player;
 
 typedef struct s_hero
 {
 	int				xp;
 	int				hp;
-	long			gold;
+	int				gold;
 	int				attack;
 	int				armor;
-	struct s_hero	*next; // next
+	t_inventory		*inventory;
 }	t_hero;
 
 typedef struct s_monster
@@ -88,6 +96,9 @@ void	print_monster(t_monster_enum monster, int *tab, t_hero *info_hero);
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
 void	print_shop(t_shop *shop, t_hero *hero);
 void	print_bannier_shop(void);
+void	print_bannier_fight(void);
+void	check_buying(t_shop *shop, t_item *item, t_hero *hero, char *line);
+
 
 
 
@@ -98,6 +109,7 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille);
 void	init_hero(t_hero *info_hero);
 void	init_shop(t_shop *info_shop);
 void	init_monster(t_monster *info_monster);
+void	init_inventory(t_inventory *inventory);
 
 
 

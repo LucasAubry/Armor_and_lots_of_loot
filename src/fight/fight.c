@@ -55,6 +55,11 @@ void	fight(t_hero *info_hero, t_monster *info_monster)
 	int	tab[3];
 	char	*line;
 	int		boucle = 1;
+	printf("\033[H\033[J");
+	print_bannier_fight();
+	line = readline("do you really want to leave the castle ?\n>");
+	if (!strcmp(line, "no") || (!strcmp(line, "No")))
+		return ;
 	while (1)
 	{
 		while (boucle > 0)

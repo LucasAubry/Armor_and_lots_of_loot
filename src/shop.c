@@ -76,6 +76,7 @@ void	select_item_inshop(t_item *item, t_shop *shop, int place_in_shop)
 void	shop(t_shop *shop, t_item *item, t_hero *hero)
 {
 	int	place_in_shop = 0;
+
 	char	*line;
 	while (place_in_shop != 5)
 	{
@@ -84,7 +85,14 @@ void	shop(t_shop *shop, t_item *item, t_hero *hero)
 	}
   	printf("\033[H\033[J");
 	print_bannier_shop();
-	line = readline("");
+	line = readline("do you want go to shop ?\n>");
+	if (!strcmp(line, "no") || (!strcmp(line, "No")))
+		return ;
 	print_shop(shop, hero);
+	printf("exit for exit");
 	line = readline(">");
+	if (!strcmp(line, "exit"))
+		return ;
+	else
+		check_buying(shop, item, hero, line);
 }
