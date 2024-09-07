@@ -78,6 +78,7 @@ typedef struct s_shop
 
 /* ========== FONCTION ============= */
 
+void	profil(void);
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *shop);
 
