@@ -64,7 +64,7 @@ int	main(void)
 		else if (atoi(line) == 3)
 			save(info_hero, info_monster, info_player);
 		else if (atoi(line) == 4)
-			profil();
+			profil_stats(info_hero);
 		else if (atoi(line) == 5)
 		{
 			printf("au revoir\n");

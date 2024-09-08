@@ -9,6 +9,8 @@ CREAD	=	-lreadline
 
 # Sources and objects
 FILES = main \
+		profil \
+		print/print_profil \
 		fight/fight \
 		fight/monster \
 		shop \

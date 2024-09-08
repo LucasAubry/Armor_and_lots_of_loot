@@ -90,7 +90,7 @@ void	shop(t_shop *shop, t_item *item, t_hero *hero)
   	printf("\033[H\033[J");
 	print_bannier_shop();
 	line = readline("do you want go to shop ?\n>");
-	if (!strcmp(line, "no") || (!strcmp(line, "No")))
+	if (strcmp(line, "yes"))
 		return ;
 	print_shop(shop, hero);
 	printf("exit for exit\n\n");

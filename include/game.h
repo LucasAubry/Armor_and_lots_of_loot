@@ -78,7 +78,6 @@ typedef struct s_shop
 
 /* ========== FONCTION ============= */
 
-void	profil(void);
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *shop);
 
@@ -101,6 +100,8 @@ void	print_bannier_fight(void);
 void	check_buying(t_shop *shop, t_item *item, t_hero *hero, char *line);
 void	print_shop_bought(t_shop *shop, t_item_stats *item);
 void	change_shop(t_item *item, t_shop *shop);
+void	print_profil(t_hero *hero);
+void	profil_stats(t_hero *hero);
 
 
 

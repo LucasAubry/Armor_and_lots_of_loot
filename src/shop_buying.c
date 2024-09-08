@@ -1,5 +1,6 @@
 #include "game.h"
 
+
 int	full_inventory(t_hero *hero)
 {
 	int full_inventory = 0;
@@ -21,14 +22,17 @@ int	full_inventory(t_hero *hero)
 
 int	can_buying(t_hero *hero, int price_item)
 {
+	char *line;
 	if (full_inventory(hero))
 	{
 		printf("your inventory is full\n\n\n");
+		line = readline("");
 		return (0);
 	}
 	if (hero->gold < price_item)
 	{
 		printf("you dont have money for this item\n\n\n");
+		line = readline("");
 		return (0);
 	}
 	return (1);
@@ -37,16 +41,25 @@ int	can_buying(t_hero *hero, int price_item)
 
 void	put_in_inventory(t_item_stats *item, t_hero *hero)
 {
-	if (hero->inventory->item_1->name == NULL)
-		hero->inventory->item_1 = item;
-	else if (hero->inventory->item_2->name == NULL)
-		hero->inventory->item_2 = item;
-	else if (hero->inventory->item_3->name == NULL)
-		hero->inventory->item_3 = item;
-	else if (hero->inventory->item_3->name == NULL)
-		hero->inventory->item_4 = item;
-	else if (hero->inventory->item_5->name == NULL)
-		hero->inventory->item_5 = item;
+	t_item_stats *new_item;
+	new_item = (t_item_stats *)malloc(sizeof(t_item_stats));
+	*new_item = *item;
+
+
+	memcpy(new_item, item, sizeof(t_item_stats));
+    if (item->name != NULL)
+        new_item->name = strdup(item->name);
+
+    if (hero->inventory->item_1->name == NULL)
+        hero->inventory->item_1 = new_item;
+    else if (hero->inventory->item_2->name == NULL)
+        hero->inventory->item_2 = new_item;
+    else if (hero->inventory->item_3->name == NULL)
+        hero->inventory->item_3 = new_item;
+    else if (hero->inventory->item_4->name == NULL)
+        hero->inventory->item_4 = new_item;
+    else if (hero->inventory->item_5->name == NULL)
+        hero->inventory->item_5 = new_item;
 }
 
 void	buy_item(t_item_stats *item, t_hero *hero, t_shop *shop, int item_price)
@@ -89,9 +102,6 @@ void	check_buying(t_shop *shop_instance, t_item *item, t_hero *hero, char *line)
 	}
 		else
 			printf("this item is not in the shop\n");
-
-	usleep(100000);
-
 	shop(shop_instance, item, hero);
 }
 

@@ -42,4 +42,3 @@ void	init_armor(t_item *item)
 	item->armor = malloc(sizeof(t_heal));
 	init_wood_shield(item);
 }
-	
