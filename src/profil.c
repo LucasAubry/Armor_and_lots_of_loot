@@ -7,4 +7,5 @@ void	profil_stats(t_hero *hero)
 	print_stats(hero);
 	print_profil(hero);
 	line = readline("");
+	(void)line;
 }

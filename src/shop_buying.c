@@ -1,6 +1,5 @@
 #include "game.h"
 
-
 int	full_inventory(t_hero *hero)
 {
 	int full_inventory = 0;
@@ -35,6 +34,7 @@ int	can_buying(t_hero *hero, int price_item)
 		line = readline("");
 		return (0);
 	}
+	(void)line;
 	return (1);
 
 }
