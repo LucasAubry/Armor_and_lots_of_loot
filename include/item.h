@@ -8,6 +8,7 @@ typedef struct s_item_stats
 	int	attack;
 	int	armor;
 	int	price;
+	int	number;
 	char	*name;
 
 }	t_item_stats;

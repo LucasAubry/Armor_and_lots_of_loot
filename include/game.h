@@ -28,10 +28,15 @@ typedef enum s_monster_enum
 typedef struct s_inventory
 {
 	t_item_stats	*item_1;	
+	char				*item_1_equip;
 	t_item_stats	*item_2;	
+	char				*item_2_equip;
 	t_item_stats	*item_3;	
+	char				*item_3_equip;
 	t_item_stats	*item_4;	
+	char				*item_4_equip;
 	t_item_stats	*item_5;	
+	char				*item_5_equip;
 }	t_inventory;
 
 typedef	struct s_player
@@ -102,6 +107,8 @@ void	print_shop_bought(t_shop *shop, t_item_stats *item);
 void	change_shop(t_item *item, t_shop *shop);
 void	print_profil(t_hero *hero);
 void	profil_stats(t_hero *hero);
+void	equip_item(t_hero *hero, int item);
+void	select_option(t_hero *hero, int item);
 
 
 

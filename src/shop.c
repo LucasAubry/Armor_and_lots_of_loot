@@ -10,6 +10,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_1->hp = stats->hp;
 		shop->item_1->name = stats->name;
 		shop->item_1->price = stats->price;
+		shop->item_1->number = stats->number;
 		shop->logo_item_1 = logo;
 	}
 	else if (place_in_shop == 2)
@@ -20,6 +21,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_2->hp = stats->hp;
 		shop->item_2->name = stats->name;
 		shop->item_2->price = stats->price;
+		shop->item_2->number = stats->number;
 		shop->logo_item_2 = logo;
 	}
 	else if (place_in_shop == 3)
@@ -30,6 +32,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_3->hp = stats->hp;
 		shop->item_3->name = stats->name;
 		shop->item_3->price = stats->price;
+		shop->item_3->number = stats->number;
 		shop->logo_item_3 = logo;
 	}
 	else if (place_in_shop == 4)
@@ -40,6 +43,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_4->hp = stats->hp;
 		shop->item_4->name = stats->name;
 		shop->item_4->price = stats->price;
+		shop->item_4->number = stats->number;
 		shop->logo_item_4 = logo;
 	}
 }	
