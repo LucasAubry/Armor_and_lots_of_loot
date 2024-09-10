@@ -37,7 +37,8 @@ void	init_inventory(t_inventory *inventory)
 void	init_hero(t_hero *info_hero)
 {
 	info_hero->xp = 1;
-	info_hero->hp = 10;
+	info_hero->hp = 5;
+	info_hero->hp_max = 5;
 	info_hero->gold = 10;
 	info_hero->attack = 1;
 	info_hero->armor = 0;

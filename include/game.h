@@ -47,6 +47,7 @@ typedef	struct s_player
 typedef struct s_hero
 {
 	int				xp;
+	int				hp_max;
 	int				hp;
 	int				gold;
 	int				attack;

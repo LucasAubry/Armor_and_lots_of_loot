@@ -39,12 +39,13 @@ void	fight_calcul(t_hero *info_hero, t_monster *info_monster, int *tab)
 
 void	reset_stats(t_hero *info_hero, t_monster *info_monster)
 {
-	info_hero->hp = 10;
+	info_hero->hp = 5;
+	info_hero->hp_max = 5;
 	info_hero->gold = 0;
 	info_hero->attack = 1;
 	info_hero->armor = 0;
 
-	info_monster->hp = 10;
+	info_monster->hp = 5;
 	info_monster->attack = 1;
 	info_monster->armor = 0;
 }
@@ -72,6 +73,7 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
   	    	if (tab[0] == 0) // loose one fight
   	    	{
 				info_hero->hp = info_hero->hp -1;
+		usleep(10000);
 				print_stats(info_hero);
   	    		if (info_hero->hp <= 0)
   	    			return;

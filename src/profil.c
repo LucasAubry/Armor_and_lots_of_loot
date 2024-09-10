@@ -3,7 +3,7 @@
 void	copy_stats(t_hero *hero, t_item_stats *stats)
 {
 	hero->hp += stats->healing;// si le nombre de pv max n'est pas attein
-	hero->hp += stats->hp;
+	hero->hp_max += stats->hp;
 	hero->attack += stats->attack;
 	hero->armor += stats->armor;
 	profil_stats(hero);		
