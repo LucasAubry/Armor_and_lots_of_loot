@@ -14,6 +14,7 @@ void	init_wood_shield(t_item *item)
 	item->armor->wood_shield->stats->price = 2;
 	item->armor->wood_shield->id = 2;
 	item->armor->wood_shield->stats->number = 1;
+	item->armor->wood_shield->stats->consummable = 0;
 
 	const char *logo =
 	"__________________________\n"

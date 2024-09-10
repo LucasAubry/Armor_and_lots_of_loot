@@ -14,6 +14,7 @@ void	init_heart(t_item *item)
 	item->hp->low_heart->stats->price = 5;
 	item->hp->low_heart->stats->number = 1;
 	item->hp->low_heart->id = 4;
+	item->hp->low_heart->stats->consummable = 0;
 
 	const char *logo =
 	"__________________________\n"

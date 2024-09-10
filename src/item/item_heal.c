@@ -15,6 +15,7 @@ void	init_potion_heal(t_item *item)
 	item->heal->potion_heal->stats->price = 1;
 	item->heal->potion_heal->stats->number = 1;
 	item->heal->potion_heal->id = 3;
+	item->heal->potion_heal->stats->consummable = 1;
 
     const char *logo =
 	"__________________________\n"

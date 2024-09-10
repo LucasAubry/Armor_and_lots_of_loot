@@ -87,6 +87,16 @@ void	change_shop(t_item *item, t_shop *shop)
 	}
 }
 
+void	in_shop(t_shop *shop, t_item *item, t_hero *hero)
+{
+	print_shop(shop, hero);
+	char *line = readline("\n>");
+	if (!strcmp(line, "exit"))
+		return ;
+	else
+		check_buying(shop, item, hero, line);
+}
+
 void	shop(t_shop *shop, t_item *item, t_hero *hero)
 {
 	char	*line;
@@ -96,11 +106,5 @@ void	shop(t_shop *shop, t_item *item, t_hero *hero)
 	line = readline("do you want go to shop ?\n>");
 	if (strcmp(line, "yes"))
 		return ;
-	print_shop(shop, hero);
-	printf("exit for exit\n\n");
-	line = readline(">");
-	if (!strcmp(line, "exit"))
-		return ;
-	else
-		check_buying(shop, item, hero, line);
+	in_shop(shop, item, hero);
 }

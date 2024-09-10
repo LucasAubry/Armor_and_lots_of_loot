@@ -74,7 +74,8 @@ void	print_shop(t_shop *shop, t_hero *hero)
 		       shop->item_1->armor,
 		       shop->item_2->attack,
 		       shop->item_2->armor);
-		printf("\n\n");	
+		printf("									Restock\n							  		  5💰\n");
+		//printf("\n\n");	
 		printf("         %-30s %s\n", shop->item_3->name, shop->item_4->name);
 		printf("            %d💰%28s%d💰\n", shop->item_3->price, "", shop->item_4->price);
 		print_side_by_side(shop->logo_item_3, shop->logo_item_4);

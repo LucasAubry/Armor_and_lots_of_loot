@@ -99,9 +99,11 @@ void	check_buying(t_shop *shop_instance, t_item *item, t_hero *hero, char *line)
 			if (can_buying(hero, shop_instance->item_4->price))
 				buy_item(shop_instance->item_4, hero, shop_instance, shop_instance->item_4->price);
 		}
+		else if (!strcmp(line, "restock") || (!strcmp(line, "Restock")))
+			change_shop(item, shop_instance);	
 	}
-		else
-			printf("this item is not in the shop\n");
-	shop(shop_instance, item, hero);
+	else
+		printf("this item is not in the shop\n");
+	in_shop(shop_instance, item, hero);
 }
 

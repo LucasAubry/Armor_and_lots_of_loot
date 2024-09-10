@@ -14,6 +14,7 @@ void	init_wood_sword(t_item *item)
 	item->attack->wood_sword->stats->price = 3;
 	item->attack->wood_sword->stats->number = 1;
 	item->attack->wood_sword->id = 1;
+	item->attack->wood_sword->stats->consummable = 0;
 	
 	const char *logo =
 	"__________________________\n"

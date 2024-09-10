@@ -109,6 +109,7 @@ void	print_profil(t_hero *hero);
 void	profil_stats(t_hero *hero);
 void	equip_item(t_hero *hero, int item);
 void	select_option(t_hero *hero, int item);
+void	in_shop(t_shop *shop, t_item *item, t_hero *hero);
 
 
 

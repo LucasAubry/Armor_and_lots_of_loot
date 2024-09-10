@@ -9,6 +9,19 @@ void	copy_stats(t_hero *hero, t_item_stats *stats)
 	profil_stats(hero);		
 }
 
+//int	check_consummable(int consummable)
+//{
+//	if (consummable == 1)
+//	{
+//		printf("CONSUMMABLE");
+//		sleep(5);
+//		return (0);//check la fonction de chaque consomable pour verifier si tu peut lutiliser (ex:
+//				   //ta 10 hp max et que tu heal ca marche pas
+//	}
+//	else
+//		return (1);
+//}
+
 void	select_option(t_hero *hero, int item)
 {
 	printf(
@@ -48,11 +61,13 @@ void	equip_item(t_hero *hero, int item)
 	{
 		if (check_equip(hero->inventory->item_1_equip, hero))
 			select_option(hero, item);
+			   	/*(!check_consummable(hero->inventory->item_1->consummable)))*/
 		hero->inventory->item_1_equip = "✅";
 		copy_stats(hero, hero->inventory->item_1);
 	}
 	else if (item == 2)
-	{	if (check_equip(hero->inventory->item_2_equip, hero))
+	{	
+		if (check_equip(hero->inventory->item_2_equip, hero))
 			select_option(hero, item);
 		hero->inventory->item_2_equip = "✅";
 		copy_stats(hero, hero->inventory->item_2);
@@ -89,13 +104,13 @@ void	profil_stats(t_hero *hero)
 	if (hero->inventory->item_1->name && !strcmp(line, "1"))
 		select_option(hero, 1);	
 	else if (hero->inventory->item_2->name && !strcmp(line, "2"))
-		select_option(hero, 1);	
+		select_option(hero, 2);	
 	else if (hero->inventory->item_3->name && !strcmp(line, "3"))
-		select_option(hero, 1);	
+		select_option(hero, 3);	
 	else if (hero->inventory->item_4->name && !strcmp(line, "4"))
-		select_option(hero, 1);	
+		select_option(hero, 4);	
 	else if (hero->inventory->item_5->name && !strcmp(line, "5"))
-		select_option(hero, 1);	
+		select_option(hero, 5);	
 	else if (!strcmp(line, "exit"))
 		return;
 	else
