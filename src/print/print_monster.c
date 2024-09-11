@@ -38,7 +38,7 @@ void print_animation(const char *frames[], int num_frames, int *tab, t_hero *inf
     		printf("\033[J");
  			printf("\033[10;0H");
             printf("%s", frames[j]);
-            usleep(300000);
+            usleep(400000);
         }
     }
 }
@@ -52,9 +52,12 @@ void print_monster(t_monster_enum monster, int *tab, t_hero *info_hero)
         case CRAB:
             print_animation(crab_frames, CRAB_NUM_FRAMES, tab, info_hero);
             break;
-        case OURS:
-            print_animation(ours_frames, OURS_NUM_FRAMES, tab, info_hero);
+        case BEE:
+            print_animation(bee_frames, BEE_NUM_FRAMES, tab, info_hero);
             break;
+		case CACTUS:
+			print_animation(cactus_frames, CACTUS_NUM_FRAMES, tab, info_hero);
+			break;
     }
 }
 

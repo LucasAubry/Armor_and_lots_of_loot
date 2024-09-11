@@ -73,7 +73,7 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
   	    	if (tab[0] == 0) // loose one fight
   	    	{
 				info_hero->hp = info_hero->hp -1;
-		usleep(10000);
+				usleep(10000);
 				print_stats(info_hero);
   	    		if (info_hero->hp <= 0)
   	    			return;
@@ -86,7 +86,7 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 			}
   	    	boucle--;
   	    }
-  	    line = readline("\nif you want to chain the fights in a loop write the number of times you want to loop\n> ");
+  	    line = readline("\nyou can loop with a number\n> ");
   	    if (!strcmp(line, "yes"))	
   	    	boucle = 1;
   	    else if (!strcmp(line, "no"))

@@ -2,25 +2,13 @@
 
 void	copy_stats(t_hero *hero, t_item_stats *stats)
 {
-	hero->hp += stats->healing;// si le nombre de pv max n'est pas attein
+	if (hero->hp != hero->hp_max)
+		hero->hp += stats->healing;// si le nombre de pv max n'est pas attein
 	hero->hp_max += stats->hp;
 	hero->attack += stats->attack;
 	hero->armor += stats->armor;
 	profil_stats(hero);		
 }
-
-//int	check_consummable(int consummable)
-//{
-//	if (consummable == 1)
-//	{
-//		printf("CONSUMMABLE");
-//		sleep(5);
-//		return (0);//check la fonction de chaque consomable pour verifier si tu peut lutiliser (ex:
-//				   //ta 10 hp max et que tu heal ca marche pas
-//	}
-//	else
-//		return (1);
-//}
 
 void	select_option(t_hero *hero, int item)
 {
@@ -40,7 +28,7 @@ void	select_option(t_hero *hero, int item)
 	{
 		printf("\noption dont existe\n");
 		sleep(2);
-		select_option(hero, item);
+		profil_stats(hero);
 	}
 }
 
@@ -59,36 +47,41 @@ void	equip_item(t_hero *hero, int item)
 {
 	if (item == 1)
 	{
-		if (check_equip(hero->inventory->item_1_equip, hero))
+		if (check_equip(hero->inventory->item_1_equip, hero) ||
+				(!check_consummable(hero->inventory->item_1, hero)))
 			select_option(hero, item);
-			   	/*(!check_consummable(hero->inventory->item_1->consummable)))*/
+
 		hero->inventory->item_1_equip = "✅";
 		copy_stats(hero, hero->inventory->item_1);
 	}
 	else if (item == 2)
 	{	
-		if (check_equip(hero->inventory->item_2_equip, hero))
+		if (check_equip(hero->inventory->item_2_equip, hero) ||
+				(!check_consummable(hero->inventory->item_2, hero)))
 			select_option(hero, item);
 		hero->inventory->item_2_equip = "✅";
 		copy_stats(hero, hero->inventory->item_2);
 	}
 	else if (item == 3)
 	{	
-		if (check_equip(hero->inventory->item_3_equip, hero))
+		if (check_equip(hero->inventory->item_3_equip, hero) ||
+				(!check_consummable(hero->inventory->item_3, hero)))
 			select_option(hero, item);
 		hero->inventory->item_3_equip = "✅";
 		copy_stats(hero, hero->inventory->item_3);
 	}
 	else if (item == 4)
 	{
-		if (check_equip(hero->inventory->item_4_equip, hero))
+		if (check_equip(hero->inventory->item_4_equip, hero) ||
+				(!check_consummable(hero->inventory->item_4, hero)))
 			select_option(hero, item);
 		hero->inventory->item_4_equip = "✅";
 		copy_stats(hero, hero->inventory->item_4);
 	}
 	else if (item == 5)
 	{	
-		if (check_equip(hero->inventory->item_5_equip, hero))
+		if (check_equip(hero->inventory->item_5_equip, hero) ||
+				(!check_consummable(hero->inventory->item_5, hero)))
 			select_option(hero, item);
 		hero->inventory->item_5_equip = "✅";
 		copy_stats(hero, hero->inventory->item_5);

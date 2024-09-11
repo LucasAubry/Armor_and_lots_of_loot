@@ -9,6 +9,7 @@ CREAD	=	-lreadline
 
 # Sources and objects
 FILES = main \
+		consummable \
 		profil \
 		print/print_profil \
 		fight/fight \
@@ -30,9 +31,10 @@ FILES = main \
 		print/print_shop \
 		animations/santore_animations \
         animations/crab_animations \
-        animations/ours_animations \
+        animations/bee_animations \
 		animations/loose_animations \
 		animations/win_animations \
+		animations/cactus_animations \
 		tools
 
 

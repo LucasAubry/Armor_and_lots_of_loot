@@ -20,7 +20,8 @@ typedef enum s_monster_enum
 {
     SANTORE,
     CRAB,
-    OURS,
+    BEE,
+	CACTUS,
 } t_monster_enum;
 
 /* ========== STRUCTURE ============= */
@@ -111,6 +112,7 @@ void	profil_stats(t_hero *hero);
 void	equip_item(t_hero *hero, int item);
 void	select_option(t_hero *hero, int item);
 void	in_shop(t_shop *shop, t_item *item, t_hero *hero);
+int		check_consummable(t_item_stats *item, t_hero *hero);
 
 
 
@@ -131,11 +133,13 @@ void	init_inventory(t_inventory *inventory);
 /*----------ANIMATION--------*/
 extern const char *santore_frames[];
 extern const char *crab_frames[];
-extern const char *ours_frames[];
+extern const char *bee_frames[];
+extern const char *cactus_frames[];
 
 extern const size_t SANTORE_NUM_FRAMES;
 extern const size_t CRAB_NUM_FRAMES;
-extern const size_t OURS_NUM_FRAMES;
+extern const size_t BEE_NUM_FRAMES;
+extern const size_t CACTUS_NUM_FRAMES;
 
 
 /*-------------error-----------------*/
