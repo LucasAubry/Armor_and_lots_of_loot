@@ -34,6 +34,7 @@ void print_save(void)
 
 int	main(void)
 {
+	srand(time(NULL));
 	t_hero *info_hero = malloc(sizeof(t_hero));
     t_monster *info_monster = malloc(sizeof(t_monster));
     t_player *info_player = malloc(sizeof(t_player));

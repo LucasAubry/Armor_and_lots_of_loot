@@ -10,7 +10,8 @@ CREAD	=	-lreadline
 # Sources and objects
 FILES = main \
 		consummable \
-		profil \
+		profil/profil \
+		profil/touch_stats_profil \
 		print/print_profil \
 		fight/fight \
 		fight/monster \
@@ -58,6 +59,7 @@ obj:
 	mkdir -p obj/animations
 	mkdir -p obj/fight
 	mkdir -p obj/item
+	mkdir -p obj/profil
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(CREAD)

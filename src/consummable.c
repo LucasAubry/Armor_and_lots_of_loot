@@ -1,6 +1,6 @@
 #include "game.h"
 
-int	check_consummable(t_item_stats *item, t_hero *hero)
+int	check_consummable(t_item_stats *item, t_hero *hero)//verif si on peut use le consomable
 {
 	int	exit = 0;
 		if (item->healing > 0)
@@ -8,6 +8,13 @@ int	check_consummable(t_item_stats *item, t_hero *hero)
 			if (hero->hp == hero->hp_max)
 			{
 				printf("\n\nyou are full life\n\n");
+				exit += 1;
+			}
+			else
+			{
+				copy_stats(hero, item);
+				item->number = 0;
+				item->name = NULL;
 				exit += 1;
 			}
 		}
@@ -30,4 +37,3 @@ int	check_consummable(t_item_stats *item, t_hero *hero)
 			return (0);
 		return (1);
 }
-

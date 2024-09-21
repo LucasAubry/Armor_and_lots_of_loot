@@ -95,7 +95,7 @@ void	print_stats(t_hero *info_hero);
 void	print_gamestart(void);
 void	print_choice(void);
 void	print_you_die(void);
-t_monster_enum	monster_choice(t_monster *info_monster);
+t_monster_enum	monster_choice(t_monster *info_monster, t_hero *hero);
 void	loose_animations(void);
 void	win_animations(void);
 void	print_animation(const char *frames[], int num_frames, int *tab, t_hero *info_hero);
@@ -113,6 +113,8 @@ void	equip_item(t_hero *hero, int item);
 void	select_option(t_hero *hero, int item);
 void	in_shop(t_shop *shop, t_item *item, t_hero *hero);
 int		check_consummable(t_item_stats *item, t_hero *hero);
+void	delet_stats(t_hero *hero, int i);
+void	copy_stats(t_hero *hero, t_item_stats *stats);
 
 
 
@@ -120,6 +122,7 @@ int		check_consummable(t_item_stats *item, t_hero *hero);
 
 /*-----------tools-----------*/
 int choix_aleatoire_pondere(int elements[], int poids[], int taille);
+int *xp_changer_monster(t_hero *hero);
 
 /*----------init-------------*/
 void	init_hero(t_hero *info_hero);

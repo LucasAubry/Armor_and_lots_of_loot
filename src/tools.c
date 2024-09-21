@@ -24,24 +24,38 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille)
     return choix;
 }
 
-int choix_aleatoire_pondere_universal(int poids[], int taille)
+//-------------------------XP CHNAGER----------------------
+
+int *xp_changer_monster(t_hero *hero)
 {
-    int i = 0;
-    int total_poids = 0;
-    int seuil;
-
-    for (i = 0; i < taille; i++) {
-        total_poids += poids[i];
-    }
-
-    seuil = rand() % total_poids;
-
-    int somme = 0;
-    for (i = 0; i < taille; i++) {
-        somme += poids[i];
-        if (seuil < somme)
-			return (i);
-    }
-    return -1;
+	int *tab = (int *)malloc(4 * sizeof(int));
+	if (hero->xp >= 10)
+	{
+		tab[0] = 9;
+		tab[1] = 0;
+		tab[2] = 1;
+		tab[3] = 3;
+	}
+	if (hero->xp <= 7)
+	{
+		tab[0] = 2;
+		tab[1] = 0;
+		tab[2] = 2;
+		tab[3] = 4;
+	}
+	if (hero->xp <= 4)
+	{
+		tab[0] = 1;
+		tab[1] = 0;
+		tab[2] = 3;
+		tab[3] = 3;
+	}
+	if (hero->xp <= 2)
+	{
+		tab[0] = 0;
+		tab[1] = 0;
+		tab[2] = 5;
+		tab[3] = 1;
+	}
+	return (tab);
 }
-

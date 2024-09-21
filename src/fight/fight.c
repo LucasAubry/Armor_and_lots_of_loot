@@ -2,11 +2,12 @@
 
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster)
 {
-	if (tab[0] == 0)
+	if (tab[0] == 0)// if loose
 	{
-		info_hero->gold+= 1;
+		//info_hero->gold+= 1;
+		info_hero->hp = info_hero->hp -1;
 	}
-	else if (tab[1] == 1)
+	else if (tab[1] == 1) // if win
 	{
 		if (monster == 0 || monster == 1)
 		{
@@ -37,19 +38,6 @@ void	fight_calcul(t_hero *info_hero, t_monster *info_monster, int *tab)
 	tab[1] = nbr_of_round;
 }
 
-void	reset_stats(t_hero *info_hero, t_monster *info_monster)
-{
-	info_hero->hp = 5;
-	info_hero->hp_max = 5;
-	info_hero->gold = 0;
-	info_hero->attack = 1;
-	info_hero->armor = 0;
-
-	info_monster->hp = 5;
-	info_monster->attack = 1;
-	info_monster->armor = 0;
-}
-
 void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *shop)
 {
 	t_monster_enum monster;
@@ -63,29 +51,26 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 		return ;
 	while (1)
 	{
-		while (boucle > 0)
+		monster = monster_choice(info_monster, info_hero);
+  	    fight_calcul(info_hero, info_monster, tab);
+  	    print_monster(monster, tab, info_hero);
+  	    gain_calcul(info_hero, tab, monster);
+		printf("\033[H\033[J"); //clear screan
+  	    if (tab[0] == 0) // loose one fight
   	    {
-			monster = monster_choice(info_monster);
-  	    	fight_calcul(info_hero, info_monster, tab);
-  	    	print_monster(monster, tab, info_hero);
-  	    	gain_calcul(info_hero, tab, monster);
-			printf("\033[H\033[J"); //clear screan
-  	    	if (tab[0] == 0) // loose one fight
-  	    	{
-				info_hero->hp = info_hero->hp -1;
-				usleep(10000);
-				print_stats(info_hero);
-  	    		if (info_hero->hp <= 0)
-  	    			return;
-  	    		loose_animations();
-  	    	}
-  	    	else // win one fight
-			{
-				change_shop(item, shop);
-  	    		win_animations();
-			}
-  	    	boucle--;
+			print_stats(info_hero);
+  	    	if (info_hero->hp <= 0)
+  	    		return;
+  	    	loose_animations();
   	    }
+  	    else
+		{
+			info_monster->hp = info_monster->hp -1;
+			if (1 + 1 == 3)//pas use
+				change_shop(item, shop);// pas use
+			print_stats(info_hero);
+  	    	win_animations();
+		}
   	    line = readline("\nyou can loop with a number\n> ");
   	    if (!strcmp(line, "yes"))	
   	    	boucle = 1;
