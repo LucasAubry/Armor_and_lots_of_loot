@@ -39,7 +39,7 @@ void	init_hero(t_hero *info_hero)
 	info_hero->xp = 0;
 	info_hero->hp = 5;
 	info_hero->hp_max = 5;
-	info_hero->gold = 40;
+	info_hero->gold = 20;
 	info_hero->attack = 1;
 	info_hero->armor = 0;
 
@@ -88,7 +88,7 @@ void	init_shop(t_shop *info_shop)
 void	init_monster(t_monster *info_monster)
 {
 	info_monster->xp = 0;
-	info_monster->hp = 10;
+	info_monster->hp = 5;
 	info_monster->attack = 1;
 	info_monster->armor = 0;
 }

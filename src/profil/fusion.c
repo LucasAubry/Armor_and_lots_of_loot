@@ -15,21 +15,26 @@ void	merge_stats(t_item_stats *dest, t_item_stats *src)
 int	check_equiped(t_hero *hero, char *main_item, char *fusion_item, 
 		t_item_stats *dest, t_item_stats *src)
 {
-	if (!strcmp(main_item, "❌") && !strcmp(fusion_item, "❌"))
+	if (!strcmp(dest->name, src->name))
 	{
-		merge_stats(dest, src);
-		src->number = 0;
-		src->name = NULL;
-		return (0);
+		if (!strcmp(main_item, "❌") && !strcmp(fusion_item, "❌"))
+		{
+			merge_stats(dest, src);
+			src->number = 0;
+			src->name = NULL;
+			return (0);
+		}
+		else
+		{
+			merge_stats(dest, src);
+			copy_stats(hero, src);
+			src->number = 0;
+			src->name = NULL;
+			return (1);
+		}
 	}
-	else
-	{
-		merge_stats(dest, src);
-		copy_stats(hero, src);
-		src->number = 0;
-		src->name = NULL;
-		return (1);
-	}
+	printf("it's not the same item\n");
+	return (0);
 }
 
 int	compare_item_fusion(t_hero *hero, int item_fusion, t_item_stats *item_conteneur, char *item_principale)

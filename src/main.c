@@ -53,7 +53,10 @@ int	main(void)
 	print_save();
 	line = readline("select your save> ");
 	if (!select_save(atoi(line), info_player))
+	{
+		free(line);
 		return (0);
+	}
 	while (1)
 	{
 		print_choice();//shop, fight, save, quit
@@ -69,6 +72,7 @@ int	main(void)
 		else if (atoi(line) == 5)
 		{
 			printf("au revoir\n");
+			free(line);
 			return (0);
 		}
 		else
@@ -79,6 +83,7 @@ int	main(void)
 		if (info_hero->hp <= 0)
 		{
 			print_you_die();
+			free(line);
 			return (0);// retour au menu mais apres un clique	
 		}
 	}

@@ -11,6 +11,8 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille)
         total_poids += poids[i];
     }
 
+	if (total_poids == 0)
+		return (-1);
     seuil = rand() % total_poids;
 
     int somme = 0;
@@ -29,33 +31,34 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille)
 int *xp_changer_monster(t_hero *hero)
 {
 	int *tab = (int *)malloc(4 * sizeof(int));
+	memset(tab, 0, 4 * sizeof(int));
 	if (hero->xp >= 40)
 	{
 		tab[BEE] = 1;
-		tab[WHALE] = 0;
+		tab[WHALE] = 2;
 		tab[CACTUS] = 3;
 		tab[SANTORE] = 9;
 	}
 	if (hero->xp <= 35)
 	{
 		tab[BEE] = 3;
-		tab[WHALE] = 0;
+		tab[WHALE] = 4;
 		tab[CACTUS] = 6;
 		tab[SANTORE] = 2;
 	}
 	if (hero->xp <= 10)
 	{
 		tab[BEE] = 7;
-		tab[WHALE] = 0;
+		tab[WHALE] = 5;
 		tab[CACTUS] = 2;
 		tab[SANTORE] = 1;
 	}
 	if (hero->xp <= 3)
 	{
-		tab[BEE] = 8;
-		tab[WHALE] = 100;
+		tab[BEE] = 9;
+		tab[WHALE] = 3;
 		tab[CACTUS] = 1;
-		tab[SANTORE] =0;
+		tab[SANTORE] = 0;
 	}
 	return (tab);
 }
