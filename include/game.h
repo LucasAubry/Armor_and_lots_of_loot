@@ -19,7 +19,7 @@ extern volatile int	g_var;
 typedef enum s_monster_enum
 {
 	BEE,
-	CRAB,
+	DISASTER,
 	CACTUS,
     SANTORE,
 } t_monster_enum;
@@ -136,12 +136,12 @@ void	init_inventory(t_inventory *inventory);
 
 /*----------ANIMATION--------*/
 extern const char *santore_frames[];
-extern const char *crab_frames[];
+extern const char *disaster_frames[];
 extern const char *bee_frames[];
 extern const char *cactus_frames[];
 
 extern const size_t SANTORE_NUM_FRAMES;
-extern const size_t CRAB_NUM_FRAMES;
+extern const size_t DISASTER_NUM_FRAMES;
 extern const size_t BEE_NUM_FRAMES;
 extern const size_t CACTUS_NUM_FRAMES;
 

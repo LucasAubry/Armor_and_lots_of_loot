@@ -9,7 +9,7 @@ void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster)
 	}
 	else if (tab[1] == 1) // if win
 	{
-		if (monster == BEE || monster == CRAB)
+		if (monster == BEE || monster == DISASTER)
 		{
 			info_hero->gold += 2;
 			info_hero->xp += 1;
