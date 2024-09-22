@@ -48,8 +48,8 @@ void print_monster(t_monster_enum monster, int *tab, t_hero *info_hero)
         case SANTORE:
             print_animation(santore_frames, SANTORE_NUM_FRAMES, tab, info_hero);
             break;
-        case DISASTER:
-            print_animation(disaster_frames, DISASTER_NUM_FRAMES, tab, info_hero);
+        case WHALE:
+            print_animation(whale_frames, WHALE_NUM_FRAMES, tab, info_hero);
             break;
         case BEE:
             print_animation(bee_frames, BEE_NUM_FRAMES, tab, info_hero);

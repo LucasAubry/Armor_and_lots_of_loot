@@ -1,6 +1,6 @@
 #include "game.h"
 
-const char *disaster_frames[] = {
+const char *whale_frames[] = {
 	"                                       \n"
 	"                                       \n"
 	"                                       \n"
@@ -106,4 +106,4 @@ const char *disaster_frames[] = {
 	"                    ~                  \n"
 };
 
-const size_t DISASTER_NUM_FRAMES = sizeof(disaster_frames) / sizeof(disaster_frames[0]);
+const size_t WHALE_NUM_FRAMES = sizeof(whale_frames) / sizeof(whale_frames[0]);

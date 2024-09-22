@@ -32,28 +32,28 @@ int *xp_changer_monster(t_hero *hero)
 	if (hero->xp >= 40)
 	{
 		tab[BEE] = 1;
-		tab[DISASTER] = 0;
+		tab[WHALE] = 0;
 		tab[CACTUS] = 3;
 		tab[SANTORE] = 9;
 	}
 	if (hero->xp <= 35)
 	{
 		tab[BEE] = 3;
-		tab[DISASTER] = 0;
+		tab[WHALE] = 0;
 		tab[CACTUS] = 6;
 		tab[SANTORE] = 2;
 	}
 	if (hero->xp <= 10)
 	{
 		tab[BEE] = 7;
-		tab[DISASTER] = 0;
+		tab[WHALE] = 0;
 		tab[CACTUS] = 2;
 		tab[SANTORE] = 1;
 	}
 	if (hero->xp <= 3)
 	{
 		tab[BEE] = 8;
-		tab[DISASTER] = 100;
+		tab[WHALE] = 100;
 		tab[CACTUS] = 1;
 		tab[SANTORE] =0;
 	}

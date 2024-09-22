@@ -32,7 +32,7 @@ FILES = main \
 		print/print_you_die \
 		print/print_shop \
 		animations/santore_animations \
-        animations/crab_animations \
+        animations/whale_animations \
         animations/bee_animations \
 		animations/loose_animations \
 		animations/win_animations \
