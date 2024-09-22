@@ -38,20 +38,23 @@ int *xp_changer_monster(t_hero *hero)
 		tab[WHALE] = 2;
 		tab[CACTUS] = 3;
 		tab[SANTORE] = 9;
+		tab[SPIDER] = 4;
 	}
 	if (hero->xp <= 35)
 	{
-		tab[BEE] = 3;
+		tab[BEE] = 2;
 		tab[WHALE] = 4;
-		tab[CACTUS] = 6;
-		tab[SANTORE] = 2;
+		tab[CACTUS] = 7;
+		tab[SANTORE] = 1;
+		tab[SPIDER] = 6;
 	}
 	if (hero->xp <= 10)
 	{
 		tab[BEE] = 7;
 		tab[WHALE] = 5;
-		tab[CACTUS] = 2;
-		tab[SANTORE] = 1;
+		tab[CACTUS] = 1;
+		tab[SANTORE] = 0;
+		tab[SPIDER] = 2;
 	}
 	if (hero->xp <= 3)
 	{
@@ -59,6 +62,7 @@ int *xp_changer_monster(t_hero *hero)
 		tab[WHALE] = 3;
 		tab[CACTUS] = 1;
 		tab[SANTORE] = 0;
+		tab[SPIDER] = 2;
 	}
 	return (tab);
 }

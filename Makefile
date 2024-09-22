@@ -37,6 +37,7 @@ FILES = main \
 		animations/loose_animations \
 		animations/win_animations \
 		animations/cactus_animations \
+		animations/spider_animations \
 		tools
 
 

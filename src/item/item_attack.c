@@ -39,12 +39,48 @@ void	init_wood_sword(t_item *item)
 	strcpy(item->attack->wood_sword->logo, logo);
 }
 
+void	init_killer_book(t_item *item)
+{
+	item->attack->killer_book = malloc(sizeof(t_killer_book));
+	item->attack->killer_book->stats = malloc(sizeof(t_item_stats));
+
+	item->attack->killer_book->stats->healing = 0;
+	item->attack->killer_book->stats->hp = 0;
+	item->attack->killer_book->stats->attack = 10;
+	item->attack->killer_book->stats->armor = 0;
+	item->attack->killer_book->stats->name = "killer book";
+	item->attack->killer_book->stats->price = 9;
+	item->attack->killer_book->stats->number = 1;
+	item->attack->killer_book->id = 5;
+	item->attack->killer_book->stats->consummable = 0;
+	
+	const char *logo =
+	"__________________________\n"
+	"|\\ ____________________ /|\n"
+	"| | _        .       _ | |\n"
+	"| |(+)     '     .  (+)| |\n"
+	"| | ~  ',  . .    ,  ~ | |\n"
+	"| | ' . |\\\\\\ ////,|    | |\n"
+	"| |   ' | \\\\\\V/// |    | |\n"
+	"| |'    |  |===|  |.   | |\n"
+	"| |     |  | k |  |  , | |\n"
+	"| | '   |  | i |  |  . | |\n"
+	"| |     |  | ; |  | ,  | |\n"
+	"| | ,  .\\  | l | /   . | |\n"
+	"| |   , , \\|===|/ ,    | |\n"
+	"| |(+)  .  '---'  , (+)| |\n"
+	"| | ~          ,     ~ | |\n"
+	"|/ -------------------- \\|\n"
+	" ------------------------ \n";	
+
+	item->attack->killer_book->logo = malloc(strlen(logo) + 1);
+	strcpy(item->attack->killer_book->logo, logo);
+}
+
+
 void	init_attack(t_item *item)
 {
 	item->attack = malloc(sizeof(t_heal));
 	init_wood_sword(item);
+	init_killer_book(item);
 }
-
-
-
-

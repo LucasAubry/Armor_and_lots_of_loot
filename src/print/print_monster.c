@@ -57,6 +57,9 @@ void print_monster(t_monster_enum monster, int *tab, t_hero *info_hero)
 		case CACTUS:
 			print_animation(cactus_frames, CACTUS_NUM_FRAMES, tab, info_hero);
 			break;
+		case SPIDER:
+			print_animation(spider_frames, SPIDER_NUM_FRAMES, tab, info_hero);
+			break;
     }
 }
 

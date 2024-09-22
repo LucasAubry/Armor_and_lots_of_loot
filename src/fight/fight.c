@@ -16,13 +16,18 @@ void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster)
 		}
 		else if (monster == CACTUS)
 		{
-			info_hero->gold += 3;
+			info_hero->gold += 4;
 			info_hero->xp += 3;
 		}
 		else if (monster == SANTORE)
 		{
 			info_hero->gold += 4;
 			info_hero->xp += 5;
+		}
+		else if (monster == SPIDER)
+		{
+			info_hero->gold += 3;
+			info_hero->xp += 2;
 		}
 	}
 }
@@ -98,10 +103,7 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 			if (!strcmp(line, "yes"))	
 	 		   	boucle = 1;
 	 	    else if (!strcmp(line, "no"))
-			{
-				free(line);
 				break;
-			}
 		    else if (atoi(line) != 0 || strcmp(line, "0") == 0)
 				boucle = (atoi(line));
 		}

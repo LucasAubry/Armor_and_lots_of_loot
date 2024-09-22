@@ -22,6 +22,7 @@ typedef enum s_monster_enum
 	WHALE,
 	CACTUS,
     SANTORE,
+	SPIDER,
 } t_monster_enum;
 
 /* ========== STRUCTURE ============= */
@@ -139,11 +140,13 @@ extern const char *santore_frames[];
 extern const char *whale_frames[];
 extern const char *bee_frames[];
 extern const char *cactus_frames[];
+extern const char *spider_frames[];
 
 extern const size_t SANTORE_NUM_FRAMES;
 extern const size_t WHALE_NUM_FRAMES;
 extern const size_t BEE_NUM_FRAMES;
 extern const size_t CACTUS_NUM_FRAMES;
+extern const size_t SPIDER_NUM_FRAMES;
 
 
 /*-------------error-----------------*/
