@@ -77,12 +77,12 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 			print_stats(info_hero);
   	    	win_animations();
 		}
-    line = readline("\nyou can loop with a number\n> ");
-    if (!strcmp(line, "yes"))	
-    	boucle = 1;
-    else if (!strcmp(line, "no"))
-    	return;
-    else if (atoi(line) != 0)
-    	boucle = (atoi(line));
+	    line = readline("\nyou can loop with a number\n> ");
+	    if (!strcmp(line, "yes"))	
+	    	boucle = 1;
+	    else if (!strcmp(line, "no"))
+	    	return;
+	    else if (atoi(line) != 0)
+	    	boucle = (atoi(line));
 	}
 }

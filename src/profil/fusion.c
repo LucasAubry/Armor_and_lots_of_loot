@@ -1,31 +1,33 @@
 #include "game.h"
 
-void	item_to_item(t_item_stats *item_conteneur, t_item_stats *item_content)
+//dest cest litem dans le quelle lautre item selectionner (src) va etre fusioner
+//en gros src devient rien et dest devient dest + src
+void	merge_stats(t_item_stats *dest, t_item_stats *src)
 {
-	item_conteneur->healing += item_content->healing;
-	item_conteneur->hp += item_content->hp;
-	item_conteneur->attack += item_content->attack;
-	item_conteneur->armor += item_content->armor;
-	item_conteneur->price += item_content->price;
-	item_conteneur->number += item_content->number;
+	dest->healing += src->healing;
+	dest->hp += src->hp;
+	dest->attack += src->attack;
+	dest->armor += src->armor;
+	dest->price += src->price;
+	dest->number += src->number;
 }
 
-int	check_equiped(t_hero *hero, char *item_principale, char *item_fusioned, 
-		t_item_stats *item_conteneur, t_item_stats *item_content)
+int	check_equiped(t_hero *hero, char *main_item, char *fusion_item, 
+		t_item_stats *dest, t_item_stats *src)
 {
-	if (!strcmp(item_principale, "❌") && !strcmp(item_fusioned, "❌"))
+	if (!strcmp(main_item, "❌") && !strcmp(fusion_item, "❌"))
 	{
-		item_to_item(item_conteneur, item_content);
-		item_content->number = 0;
-		item_content->name = NULL;
+		merge_stats(dest, src);
+		src->number = 0;
+		src->name = NULL;
 		return (0);
 	}
 	else
 	{
-		item_to_item(item_conteneur, item_content);
-		copy_stats(hero, item_content);//a supprimer si les stats sont doubler
-		item_content->number = 0;
-		item_content->name = NULL;
+		merge_stats(dest, src);
+		copy_stats(hero, src);
+		src->number = 0;
+		src->name = NULL;
 		return (1);
 	}
 }
@@ -35,7 +37,7 @@ int	compare_item_fusion(t_hero *hero, int item_fusion, t_item_stats *item_conten
 	int i = 0;
 	if (item_fusion == 1)
 	{
-		i = check_equiped(hero, item_principale, hero->inventory->item_1_equip, item_conteneur, hero->inventory->item_1);
+		i = check_equiped(hero, item_principale, hero->inventory->item_1_equip, item_conteneur,	hero->inventory->item_1);
 		hero->inventory->item_1_equip = "❌";
 	}
 	else if (item_fusion == 2)

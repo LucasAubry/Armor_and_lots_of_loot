@@ -55,7 +55,7 @@ int *xp_changer_monster(t_hero *hero)
 		tab[BEE] = 8;
 		tab[CRAB] = 0;
 		tab[CACTUS] = 1;
-		tab[SANTORE] =0;
+		tab[SANTORE] =100;
 	}
 	return (tab);
 }
