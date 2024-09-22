@@ -12,6 +12,7 @@ FILES = main \
 		consummable \
 		profil/profil \
 		profil/touch_stats_profil \
+		profil/fusion \
 		print/print_profil \
 		fight/fight \
 		fight/monster \

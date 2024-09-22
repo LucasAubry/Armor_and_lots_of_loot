@@ -18,10 +18,10 @@ extern volatile int	g_var;
 /* ========== ENUM ================= */
 typedef enum s_monster_enum
 {
-    SANTORE,
-    CRAB,
-    BEE,
+	BEE,
+	CRAB,
 	CACTUS,
+    SANTORE,
 } t_monster_enum;
 
 /* ========== STRUCTURE ============= */
@@ -115,6 +115,7 @@ void	in_shop(t_shop *shop, t_item *item, t_hero *hero);
 int		check_consummable(t_item_stats *item, t_hero *hero);
 void	delet_stats(t_hero *hero, int i);
 void	copy_stats(t_hero *hero, t_item_stats *stats);
+void	fusion_item(t_hero *hero, int item);
 
 
 

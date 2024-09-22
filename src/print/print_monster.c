@@ -28,8 +28,7 @@ void	print_bannier_fight(void)
 
 void print_animation(const char *frames[], int num_frames, int *tab, t_hero *info_hero)
 {
-	if (tab[1] <= 0)
-		tab[1] = 1;
+	tab[1] = 1; // nombre de rounde (foix ou lanimation ce fait)
 	printf("\033[H\033[J");
     print_stats(info_hero);
     for (int i = 0; i < tab[1]; i++) {

@@ -29,33 +29,33 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille)
 int *xp_changer_monster(t_hero *hero)
 {
 	int *tab = (int *)malloc(4 * sizeof(int));
-	if (hero->xp >= 10)
+	if (hero->xp >= 40)
 	{
-		tab[0] = 9;
-		tab[1] = 0;
-		tab[2] = 1;
-		tab[3] = 3;
+		tab[BEE] = 1;
+		tab[CRAB] = 0;
+		tab[CACTUS] = 3;
+		tab[SANTORE] = 9;
 	}
-	if (hero->xp <= 7)
+	if (hero->xp <= 35)
 	{
-		tab[0] = 2;
-		tab[1] = 0;
-		tab[2] = 2;
-		tab[3] = 4;
+		tab[BEE] = 3;
+		tab[CRAB] = 0;
+		tab[CACTUS] = 6;
+		tab[SANTORE] = 2;
 	}
-	if (hero->xp <= 4)
+	if (hero->xp <= 10)
 	{
-		tab[0] = 1;
-		tab[1] = 0;
-		tab[2] = 3;
-		tab[3] = 3;
+		tab[BEE] = 7;
+		tab[CRAB] = 0;
+		tab[CACTUS] = 2;
+		tab[SANTORE] = 1;
 	}
-	if (hero->xp <= 2)
+	if (hero->xp <= 3)
 	{
-		tab[0] = 0;
-		tab[1] = 0;
-		tab[2] = 5;
-		tab[3] = 1;
+		tab[BEE] = 8;
+		tab[CRAB] = 0;
+		tab[CACTUS] = 1;
+		tab[SANTORE] =0;
 	}
 	return (tab);
 }

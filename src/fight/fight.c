@@ -9,15 +9,20 @@ void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster)
 	}
 	else if (tab[1] == 1) // if win
 	{
-		if (monster == 0 || monster == 1)
+		if (monster == BEE || monster == CRAB)
 		{
-			info_hero->gold+= 3;
-			info_hero->xp+= 1;
+			info_hero->gold += 2;
+			info_hero->xp += 1;
 		}
-		else
+		else if (monster == CACTUS)
 		{
-			info_hero->gold+= 4;
-			info_hero->xp+= 2;
+			info_hero->gold += 3;
+			info_hero->xp += 2;
+		}
+		else if (monster == SANTORE)
+		{
+			info_hero->gold += 4;
+			info_hero->xp += 3;
 		}
 	}
 }
@@ -49,8 +54,9 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 	line = readline("do you really want to leave the castle ?\n>");
 	if (!strcmp(line, "no") || (!strcmp(line, "No")))
 		return ;
-	while (1)
+	while (boucle > 0)
 	{
+		boucle--;
 		monster = monster_choice(info_monster, info_hero);
   	    fight_calcul(info_hero, info_monster, tab);
   	    print_monster(monster, tab, info_hero);
@@ -71,12 +77,12 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 			print_stats(info_hero);
   	    	win_animations();
 		}
-  	    line = readline("\nyou can loop with a number\n> ");
-  	    if (!strcmp(line, "yes"))	
-  	    	boucle = 1;
-  	    else if (!strcmp(line, "no"))
-  	    	return;
-  	    else if (atoi(line) != 0)
-  	    	boucle = (atoi(line));
-  	    }
+    line = readline("\nyou can loop with a number\n> ");
+    if (!strcmp(line, "yes"))	
+    	boucle = 1;
+    else if (!strcmp(line, "no"))
+    	return;
+    else if (atoi(line) != 0)
+    	boucle = (atoi(line));
+	}
 }

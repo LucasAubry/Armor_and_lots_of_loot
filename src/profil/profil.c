@@ -65,8 +65,11 @@ void	select_option(t_hero *hero, int item)
 	}
 	else if (!strcmp(line, "exit"))
 		profil_stats(hero);
-	//else if (!strcmp(line, "Fusion"))
-		//fusion_item(hero, item);
+	else if (!strcmp(line, "fusion"))
+	{
+		fusion_item(hero, item);
+		profil_stats(hero);
+	}
 	else if (!strcmp(line, "sell"))
 	{
 		sell_item(hero, item);
