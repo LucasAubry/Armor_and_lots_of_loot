@@ -101,8 +101,13 @@ void	check_buying(t_shop *shop_instance, t_item *item, t_hero *hero, char *line)
 		}
 		else if (!strcmp(line, "restock") || (!strcmp(line, "Restock")))
 		{
-			hero->gold = hero->gold -5;
-			change_shop(item, shop_instance);	
+			if (hero->gold <= 4)
+				printf("you dont have money for this item\n\n\n");
+			else
+			{
+				hero->gold = hero->gold -5;
+				change_shop(item, shop_instance, hero);	
+			}
 		}
 	}
 	else

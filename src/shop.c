@@ -72,21 +72,21 @@ void	item_selected(t_item *item, t_shop *shop, int i, int place_in_shop)
 	//esle if (i == item->
 }
 
-void	select_item_inshop(t_item *item, t_shop *shop, int place_in_shop)
+void	select_item_inshop(t_item *item, t_shop *shop, t_hero *hero, int place_in_shop)
 {
-	int	element[] = {1, 2, 3, 4, 5};
-	int	poids[] = {5, 5, 5, 5, 1};//en fonnction de l'xp
+	int	element[] = {WOOD_SHIELD, WOOD_SWORD, HEAL_POTION, LOW_HEART, KILLER_BOOK};
+	int	*poids = xp_changer_item(hero);//modifier les choix en fonnction de l'xp
 	int taille = sizeof(element) / sizeof(element[0]);
 	int	i = choix_aleatoire_pondere(element, poids, taille);
 	item_selected(item, shop, i, place_in_shop);
 }
 
-void	change_shop(t_item *item, t_shop *shop)
+void	change_shop(t_item *item, t_shop *shop, t_hero *hero)
 {
 	int	place_in_shop = 0;
 	while (place_in_shop != 5)
 	{
-		select_item_inshop(item, shop, place_in_shop);
+		select_item_inshop(item, shop, hero, place_in_shop);
 		place_in_shop++;
 	}
 }

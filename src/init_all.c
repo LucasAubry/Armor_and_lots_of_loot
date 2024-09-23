@@ -39,7 +39,7 @@ void	init_hero(t_hero *info_hero)
 	info_hero->xp = 0;
 	info_hero->hp = 5;
 	info_hero->hp_max = 5;
-	info_hero->gold = 40;
+	info_hero->gold = 5;
 	info_hero->attack = 1;
 	info_hero->armor = 0;
 

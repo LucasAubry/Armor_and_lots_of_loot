@@ -1,6 +1,15 @@
 #ifndef ITEM_H
 # define ITEM_H
 
+typedef enum s_item_enum
+{
+	WOOD_SHIELD,
+	WOOD_SWORD,
+	HEAL_POTION,
+	LOW_HEART,
+	KILLER_BOOK,
+}	t_item_enum;
+
 typedef struct s_item_stats
 {
 	int	healing;

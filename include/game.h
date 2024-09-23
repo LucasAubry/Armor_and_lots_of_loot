@@ -107,7 +107,7 @@ void	print_bannier_shop(void);
 void	print_bannier_fight(void);
 void	check_buying(t_shop *shop, t_item *item, t_hero *hero, char *line);
 void	print_shop_bought(t_shop *shop, t_item_stats *item);
-void	change_shop(t_item *item, t_shop *shop);
+void	change_shop(t_item *item, t_shop *shop, t_hero *hero);
 void	print_profil(t_hero *hero);
 void	profil_stats(t_hero *hero);
 void	equip_item(t_hero *hero, int item);
@@ -125,6 +125,7 @@ void	fusion_item(t_hero *hero, int item);
 /*-----------tools-----------*/
 int choix_aleatoire_pondere(int elements[], int poids[], int taille);
 int *xp_changer_monster(t_hero *hero);
+int *xp_changer_item(t_hero *hero);
 
 /*----------init-------------*/
 void	init_hero(t_hero *info_hero);

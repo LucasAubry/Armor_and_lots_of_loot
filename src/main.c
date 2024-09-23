@@ -47,7 +47,7 @@ int	main(void)
 	init_monster(info_monster);
 	init_item(item);
 	init_shop(info_shop);
-	change_shop(item, info_shop);
+	change_shop(item, info_shop, info_hero);
 	
 	print_gamestart();
 	print_save();

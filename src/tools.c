@@ -67,4 +67,42 @@ int *xp_changer_monster(t_hero *hero)
 	return (tab);
 }
 
+int *xp_changer_item(t_hero *hero)
+{
+	int *tab = (int *)malloc(10 * sizeof(int));
+	memset(tab, 0, 10 * sizeof(int));
+	if (hero->xp >= 40)
+	{
+		tab[WOOD_SHIELD] = 2;
+		tab[WOOD_SWORD] = 2;
+		tab[HEAL_POTION] = 4;
+		tab[LOW_HEART] = 6;
+		tab[KILLER_BOOK] = 7;
+	}
+	if (hero->xp <= 35)
+{
+		tab[WOOD_SHIELD] = 3;
+		tab[WOOD_SWORD] = 3;
+		tab[HEAL_POTION] = 4;
+		tab[LOW_HEART] = 4;
+		tab[KILLER_BOOK] = 5;
+	}
+	if (hero->xp <= 10)
+	{
+		tab[WOOD_SHIELD] = 4;
+		tab[WOOD_SWORD] = 4;
+		tab[HEAL_POTION] = 5;
+		tab[LOW_HEART] = 2;
+		tab[KILLER_BOOK] = 1;
+	}
+	if (hero->xp <= 3)
+	{
+		tab[WOOD_SHIELD] = 5;
+		tab[WOOD_SWORD] = 5;
+		tab[HEAL_POTION] = 8;
+		tab[LOW_HEART] = 1;
+		tab[KILLER_BOOK] = 0;
+	}
+	return (tab);
+}
 

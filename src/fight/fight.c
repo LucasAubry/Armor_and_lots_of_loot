@@ -83,22 +83,18 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
   	    	{
 				print_stats(info_hero);
   	    		if (info_hero->hp <= 0)
-				{
-					free(line);
   	    			break;
-				}
   	    		loose_animations();
   	    	}
   	    	else
 			{
 				//info_monster->hp = info_monster->hp -1;
 				if (1 + 1 == 3)//pas use
-					change_shop(item, shop);// pas use
+					change_shop(item, shop, info_hero);// pas use
 				print_stats(info_hero);
   	    		win_animations();
 			}
-		
-			free(line);
+
 			line = readline("\nyou can loop with a number\n> ");
 			if (!strcmp(line, "yes"))	
 	 		   	boucle = 1;
