@@ -5,9 +5,10 @@ int	check_consummable(t_item_stats *item, t_hero *hero)//verif si on peut use le
 	int	exit = 0;
 		if (item->healing > 0)
 		{
-			if (hero->hp >= hero->hp_max || item->healing + hero->hp > hero->hp_max)
+			if ((strcmp(item->name, "heal flower")) && (hero->hp >= hero->hp_max || item->healing + hero->hp > hero->hp_max))
 			{
 				printf("\n\nyou are full life\n\n");
+				sleep(2);
 				exit += 1;
 			}
 			else

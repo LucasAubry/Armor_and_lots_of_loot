@@ -76,8 +76,8 @@ void	delet_stats(t_hero *hero, int i)
 
 void	copy_stats(t_hero *hero, t_item_stats *stats)
 {
-	if (hero->hp != hero->hp_max)
-		hero->hp += stats->healing;// si le nombre de pv max n'est pas attein
+	//if (hero->hp != hero->hp_max)// a re rajouter si ca on peut ce heal full hp
+	hero->hp += stats->healing;
 	hero->hp_max += stats->hp;
 	hero->attack += stats->attack;
 	hero->armor += stats->armor;

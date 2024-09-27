@@ -13,7 +13,7 @@ void	init_wood_sword(t_item *item)
 	item->attack->wood_sword->stats->name = "wood sword";
 	item->attack->wood_sword->stats->price = 3;
 	item->attack->wood_sword->stats->number = 1;
-	item->attack->wood_sword->id = 1;
+	item->attack->wood_sword->id = 0;
 	item->attack->wood_sword->stats->consummable = 0;
 	
 	const char *logo =
@@ -51,7 +51,7 @@ void	init_killer_book(t_item *item)
 	item->attack->killer_book->stats->name = "killer book";
 	item->attack->killer_book->stats->price = 9;
 	item->attack->killer_book->stats->number = 1;
-	item->attack->killer_book->id = 5;
+	item->attack->killer_book->id = 4;
 	item->attack->killer_book->stats->consummable = 0;
 	
 	const char *logo =
@@ -80,7 +80,7 @@ void	init_killer_book(t_item *item)
 
 void	init_attack(t_item *item)
 {
-	item->attack = malloc(sizeof(t_heal));
+	item->attack = malloc(sizeof(t_attack));
 	init_wood_sword(item);
 	init_killer_book(item);
 }

@@ -174,3 +174,10 @@ void	profil_stats(t_hero *hero)
 	else
 		profil_stats(hero);
 }
+
+//selection des choix dans le jeux
+//si flech de droite select +1
+//si flech du bas + 2
+//si fleche du haut -2
+//si fleche de gauche -1
+//is i > 4 i = 0

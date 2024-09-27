@@ -69,21 +69,28 @@ void	item_selected(t_item *item, t_shop *shop, int i, int place_in_shop)
 	else if (i == item->attack->killer_book->id)
 		copy_stats_in_shop(item->attack->killer_book->stats, 
 				item->attack->killer_book->logo, shop, place_in_shop);
+
+	else if (i == item->heal->heal_flower->id)
+		copy_stats_in_shop(item->heal->heal_flower->stats, 
+				item->heal->heal_flower->logo, shop, place_in_shop);
 	//esle if (i == item->
 }
 
 void	select_item_inshop(t_item *item, t_shop *shop, t_hero *hero, int place_in_shop)
 {
-	int	element[] = {WOOD_SHIELD, WOOD_SWORD, HEAL_POTION, LOW_HEART, KILLER_BOOK};
+	int	element[] = {WOOD_SHIELD, WOOD_SWORD, HEAL_POTION, LOW_HEART, KILLER_BOOK, 
+	HEAL_FLOWER};
 	int	*poids = xp_changer_item(hero);//modifier les choix en fonnction de l'xp
 	int taille = sizeof(element) / sizeof(element[0]);
-	int	i = choix_aleatoire_pondere(element, poids, taille);
-	item_selected(item, shop, i, place_in_shop);
-}
+
+	t_item_enum i = choix_aleatoire_pondere(element, poids, taille);
+	item_selected(item, shop, i, place_in_shop);//i cest l'id de litem
+	free(poids);
+}//le problemme cest que ici choix aleatoir returne 0 et aucun enum nest 0 donc il ne devrait pas retoruner 0
 
 void	change_shop(t_item *item, t_shop *shop, t_hero *hero)
 {
-	int	place_in_shop = 0;
+	int	place_in_shop = 1;
 	while (place_in_shop != 5)
 	{
 		select_item_inshop(item, shop, hero, place_in_shop);

@@ -8,6 +8,7 @@ typedef enum s_item_enum
 	HEAL_POTION,
 	LOW_HEART,
 	KILLER_BOOK,
+	HEAL_FLOWER,
 }	t_item_enum;
 
 typedef struct s_item_stats

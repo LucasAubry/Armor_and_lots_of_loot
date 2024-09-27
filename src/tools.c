@@ -30,8 +30,8 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille)
 
 int *xp_changer_monster(t_hero *hero)
 {
-	int *tab = (int *)malloc(4 * sizeof(int));
-	memset(tab, 0, 4 * sizeof(int));
+	int *tab = (int *)malloc(5 * sizeof(int));
+	memset(tab, 0, 5 * sizeof(int));
 	if (hero->xp >= 40)
 	{
 		tab[BEE] = 1;
@@ -69,8 +69,8 @@ int *xp_changer_monster(t_hero *hero)
 
 int *xp_changer_item(t_hero *hero)
 {
-	int *tab = (int *)malloc(10 * sizeof(int));
-	memset(tab, 0, 10 * sizeof(int));
+	int *tab = (int *)malloc(6 * sizeof(int));
+	memset(tab, 0, 6 * sizeof(int));
 	if (hero->xp >= 40)
 	{
 		tab[WOOD_SHIELD] = 2;
@@ -78,6 +78,7 @@ int *xp_changer_item(t_hero *hero)
 		tab[HEAL_POTION] = 4;
 		tab[LOW_HEART] = 6;
 		tab[KILLER_BOOK] = 7;
+		tab[HEAL_FLOWER] = 0;
 	}
 	if (hero->xp <= 35)
 {
@@ -86,6 +87,7 @@ int *xp_changer_item(t_hero *hero)
 		tab[HEAL_POTION] = 4;
 		tab[LOW_HEART] = 4;
 		tab[KILLER_BOOK] = 5;
+		tab[HEAL_FLOWER] = 0;
 	}
 	if (hero->xp <= 10)
 	{
@@ -94,14 +96,16 @@ int *xp_changer_item(t_hero *hero)
 		tab[HEAL_POTION] = 5;
 		tab[LOW_HEART] = 2;
 		tab[KILLER_BOOK] = 1;
+		tab[HEAL_FLOWER] = 2;
 	}
 	if (hero->xp <= 3)
 	{
-		tab[WOOD_SHIELD] = 5;
-		tab[WOOD_SWORD] = 5;
-		tab[HEAL_POTION] = 8;
-		tab[LOW_HEART] = 1;
-		tab[KILLER_BOOK] = 0;
+		tab[WOOD_SHIELD] = 5;//5
+		tab[WOOD_SWORD] = 4;//4
+		tab[HEAL_POTION] = 8;//8
+		tab[LOW_HEART] = 1;//1
+		tab[KILLER_BOOK] = 1;//1
+		tab[HEAL_FLOWER] = 10;
 	}
 	return (tab);
 }
