@@ -1,5 +1,69 @@
 #include "game.h"
 
+void	arrow_selection(char **frames)
+{
+	int	ch;
+	int	enter = -1;
+	int	arrow = 0;
+
+	initscr();
+	raw();
+	keypad(stdscr, TRUE);
+	refresh();
+	while (frame[i])
+		nombre_de_frame++;
+
+	while (enter == -1)
+	{
+		ch = getch();
+		switch (ch) {
+			case KEY_UP:
+				arrow += 2;
+				printf("%s\n", frames[arrow]);
+				break;
+			case KEY_DOWN:
+				arrow -= 2;
+				printf("%s\n", frames[arrow]);
+				break;
+			case KEY_LEFT:
+				arrow +1;
+				printf("%s\n", frames[arrow]);
+				break;
+			case KEY_RIGHT:
+				arrow -=1;
+				printf("%s\n", frames[arrow]);
+				break;
+			case '\n': // touche entrer
+				enter = 1;
+				break;
+			default:
+				refresh();
+				break;
+		}
+		if (arrow > nombre_de_frames)
+			arrow = 0;
+		refresh();	
+	}
+	endwin();
+	return (arrow);
+}
+
+
+int	selection(int num, ...)//fonnction pour selectionner avec les fleches plutot qu'en tapan les choses
+{
+	va_list args;
+	char **frames;
+
+	va_start(args, num);
+
+	for(int i = 0; i < num; i++;) {
+		frames[i] = va_arg(args, char *);
+	}
+	i = arrow_selection(frames);
+	va_end(args);
+	return (i);
+}
+
 int choix_aleatoire_pondere(int elements[], int poids[], int taille)
 {
     int i = 0;

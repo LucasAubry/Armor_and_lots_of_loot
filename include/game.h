@@ -126,6 +126,7 @@ void	fusion_item(t_hero *hero, int item);
 int choix_aleatoire_pondere(int elements[], int poids[], int taille);
 int *xp_changer_monster(t_hero *hero);
 int *xp_changer_item(t_hero *hero);
+int	selection(int num, ...)
 
 /*----------init-------------*/
 void	init_hero(t_hero *info_hero);

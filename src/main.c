@@ -60,6 +60,9 @@ int	main(void)
 	while (1)
 	{
 		print_choice();//shop, fight, save, quit
+
+		selection(5, f
+
 		line = readline("> ");
 		if (atoi(line) == 1)
 			shop(info_shop, item, info_hero);
