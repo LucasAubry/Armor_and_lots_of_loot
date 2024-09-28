@@ -51,34 +51,22 @@ void	sell_item(t_hero *hero, int item)
 
 void	select_option(t_hero *hero, int item)
 {
-	printf(
-		"\nSelect :\n\n"
-		"-Equip\n"
-		"-Fusion\n"
-		"-Sell\n"
-		"-Exit\n");
-	char *line = readline("> ");
-	if (!strcmp(line, "Equip") || (!strcmp(line, "equip")))
+	int i = choice_equip(hero, item);
+	if (i == 0)
 	{
 		equip_item(hero, item);
 		profil_stats(hero);
 	}
-	else if (!strcmp(line, "exit"))
+	else if (i == 3)
 		profil_stats(hero);
-	else if (!strcmp(line, "fusion"))
+	else if (i == 1)
 	{
 		fusion_item(hero, item);
 		profil_stats(hero);
 	}
-	else if (!strcmp(line, "sell"))
+	else if (i == 2)
 	{
 		sell_item(hero, item);
-		profil_stats(hero);
-	}
-	else
-	{
-		printf("\noption dont existe\n");
-		sleep(2);
 		profil_stats(hero);
 	}
 }
@@ -174,10 +162,3 @@ void	profil_stats(t_hero *hero)
 	else
 		profil_stats(hero);
 }
-
-//selection des choix dans le jeux
-//si flech de droite select +1
-//si flech du bas + 2
-//si fleche du haut -2
-//si fleche de gauche -1
-//is i > 4 i = 0

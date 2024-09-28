@@ -37,6 +37,7 @@ void	init_wood_sword(t_item *item)
 
 	item->attack->wood_sword->logo = malloc(strlen(logo) + 1);
 	strcpy(item->attack->wood_sword->logo, logo);
+	item->attack->wood_sword->stats->logo = strdup(logo);
 }
 
 void	init_killer_book(t_item *item)
@@ -75,6 +76,7 @@ void	init_killer_book(t_item *item)
 
 	item->attack->killer_book->logo = malloc(strlen(logo) + 1);
 	strcpy(item->attack->killer_book->logo, logo);
+	item->attack->killer_book->stats->logo = strdup(logo);
 }
 
 

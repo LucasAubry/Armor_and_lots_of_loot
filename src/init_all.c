@@ -31,6 +31,12 @@ void	init_inventory(t_inventory *inventory)
 	inventory->item_3->consummable = 0;
 	inventory->item_4->consummable = 0;
 	inventory->item_5->consummable = 0;
+
+	inventory->item_1->logo = NULL;
+	inventory->item_2->logo = NULL;
+	inventory->item_3->logo = NULL;
+	inventory->item_4->logo = NULL;
+	inventory->item_5->logo = NULL;
 	//init le reste de item comme sur init_shop
 }
 

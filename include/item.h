@@ -20,6 +20,7 @@ typedef struct s_item_stats
 	int	price;
 	int	number;
 	int	consummable;
+	char	*logo;
 	char	*name;
 
 }	t_item_stats;

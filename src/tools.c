@@ -1,4 +1,6 @@
 #include "game.h"
+#include <ncurses.h>
+#include <stdio.h>
 
 int	arrow_selection(char **frames, int nombre_de_frames)
 {

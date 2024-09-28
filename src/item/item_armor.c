@@ -37,6 +37,7 @@ void	init_wood_shield(t_item *item)
 
 	item->armor->wood_shield->logo = malloc(strlen(logo) + 1);
 	strcpy(item->armor->wood_shield->logo, logo);
+	item->armor->wood_shield->stats->logo = strdup(logo);
 }
 
 void	init_armor(t_item *item)

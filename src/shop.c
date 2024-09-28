@@ -11,6 +11,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_1->name = stats->name;
 		shop->item_1->price = stats->price;
 		shop->item_1->number = stats->number;
+		shop->item_1->logo = stats->logo;
 		shop->logo_item_1 = logo;
 	}
 	else if (place_in_shop == 2)
@@ -22,6 +23,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_2->name = stats->name;
 		shop->item_2->price = stats->price;
 		shop->item_2->number = stats->number;
+		shop->item_2->logo = stats->logo;
 		shop->logo_item_2 = logo;
 	}
 	else if (place_in_shop == 3)
@@ -33,6 +35,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_3->name = stats->name;
 		shop->item_3->price = stats->price;
 		shop->item_3->number = stats->number;
+		shop->item_3->logo = stats->logo;
 		shop->logo_item_3 = logo;
 	}
 	else if (place_in_shop == 4)
@@ -44,6 +47,7 @@ void	copy_stats_in_shop(t_item_stats *stats, char *logo, t_shop *shop, int place
 		shop->item_4->name = stats->name;
 		shop->item_4->price = stats->price;
 		shop->item_4->number = stats->number;
+		shop->item_4->logo = stats->logo;
 		shop->logo_item_4 = logo;
 	}
 }	
@@ -110,12 +114,9 @@ void	in_shop(t_shop *shop, t_item *item, t_hero *hero)
 
 void	shop(t_shop *shop, t_item *item, t_hero *hero)
 {
-	char	*line;
-
   	printf("\033[H\033[J");
-	print_bannier_shop();
-	line = readline("do you want go to shop ?\n>");
-	if (strcmp(line, "yes"))
+	int i = choice_shop_button();
+	if (i == 1)
 		return ;
 	in_shop(shop, item, hero);
 }

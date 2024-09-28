@@ -37,6 +37,7 @@ void	init_heart(t_item *item)
 
 	item->hp->low_heart->logo = malloc(strlen(logo) + 1);
 	strcpy(item->hp->low_heart->logo, logo);
+	item->hp->low_heart->stats->logo = strdup(logo);
 }
 
 void	init_hp(t_item *item)

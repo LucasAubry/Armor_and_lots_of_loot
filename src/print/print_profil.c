@@ -27,7 +27,8 @@ void	print_profil(t_hero *hero)
 		copy_item_5 = "Nothing";
 	else
 		copy_item_5 = hero->inventory->item_5->name;
-	printf(
+
+		char *inventory =
 		"           	                                    \n"	
 		"|=================================================|\n"
 		"|                    INVENTORY                    |\n"
@@ -43,10 +44,16 @@ void	print_profil(t_hero *hero)
 		"| 004  | %-18s |    %d     |    %s    |           \n"
 		"|-------------------------------------------------|\n"
 		"| 005  | %-18s |    %d     |    %s    |           \n"
-		"==================================================|\n",
-	copy_item_1, hero->inventory->item_1->number, hero->inventory->item_1_equip,
-	copy_item_2, hero->inventory->item_2->number, hero->inventory->item_2_equip,
-	copy_item_3, hero->inventory->item_3->number,	hero->inventory->item_3_equip,
-	copy_item_4, hero->inventory->item_4->number, hero->inventory->item_4_equip,
-	copy_item_5, hero->inventory->item_5->number, hero->inventory->item_5_equip);
+		"==================================================|\n";
+
+		char buffer[1024];
+	snprintf(buffer, sizeof(buffer), inventory,
+    copy_item_1, hero->inventory->item_1->number, hero->inventory->item_1_equip,
+    copy_item_2, hero->inventory->item_2->number, hero->inventory->item_2_equip,
+    copy_item_3, hero->inventory->item_3->number, hero->inventory->item_3_equip,
+    copy_item_4, hero->inventory->item_4->number, hero->inventory->item_4_equip,
+    copy_item_5, hero->inventory->item_5->number, hero->inventory->item_5_equip);
+	printf("%s", buffer);
 }
+
+

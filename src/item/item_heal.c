@@ -38,6 +38,7 @@ void	init_potion_heal(t_item *item)
 
     item->heal->potion_heal->logo = malloc(strlen(logo) + 1);
     strcpy(item->heal->potion_heal->logo, logo);
+    item->heal->potion_heal->stats->logo = strdup(logo);
 }
 	
 void	init_heal_flower(t_item *item)
@@ -76,6 +77,7 @@ void	init_heal_flower(t_item *item)
 
     item->heal->heal_flower->logo = malloc(strlen(logo) + 1);
     strcpy(item->heal->heal_flower->logo, logo);
+    item->heal->heal_flower->stats->logo = strdup(logo);
 }
 
 void	init_heal(t_item *item)

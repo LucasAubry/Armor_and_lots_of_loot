@@ -31,6 +31,7 @@ FILES = main \
 		print/print_choice \
 		print/print_you_die \
 		print/print_shop \
+		print/choice \
 		animations/santore_animations \
         animations/whale_animations \
         animations/bee_animations \
@@ -39,6 +40,7 @@ FILES = main \
 		animations/cactus_animations \
 		animations/spider_animations \
 		free_all \
+		selection \
 		tools
 
 
