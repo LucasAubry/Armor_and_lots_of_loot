@@ -1,66 +1,75 @@
 #include "game.h"
 
-void	arrow_selection(char **frames)
+int	arrow_selection(char **frames, int nombre_de_frames)
 {
 	int	ch;
-	int	enter = -1;
+	int	modif = 0;
 	int	arrow = 0;
+	nombre_de_frames--;
 
 	initscr();
 	raw();
+	clear();
 	keypad(stdscr, TRUE);
 	refresh();
-	while (frame[i])
-		nombre_de_frame++;
 
-	while (enter == -1)
+	mvprintw(0, 0, "%s", frames[arrow]);
+	while (1)
 	{
 		ch = getch();
 		switch (ch) {
 			case KEY_UP:
-				arrow += 2;
-				printf("%s\n", frames[arrow]);
+				arrow -= 1;
+				if (arrow < 0) arrow = nombre_de_frames;
+				modif = 1;
 				break;
 			case KEY_DOWN:
-				arrow -= 2;
-				printf("%s\n", frames[arrow]);
+				arrow += 1;
+				if (arrow > nombre_de_frames) arrow = 0;
+				modif = 1;
 				break;
 			case KEY_LEFT:
-				arrow +1;
-				printf("%s\n", frames[arrow]);
+				arrow -= 1;
+				if (arrow < 0) arrow = nombre_de_frames;
+				modif = 1;
 				break;
 			case KEY_RIGHT:
-				arrow -=1;
-				printf("%s\n", frames[arrow]);
+				arrow +=1;
+				if (arrow > nombre_de_frames) arrow = 0;
+				modif = 1;
 				break;
 			case '\n': // touche entrer
-				enter = 1;
-				break;
+				endwin();
+				return (arrow);
 			default:
-				refresh();
+				modif = 0;
 				break;
 		}
-		if (arrow > nombre_de_frames)
-			arrow = 0;
+		if (modif == 1)
+		{
+			mvprintw(0, 0, "%s", frames[arrow]);
+			modif = 0;
+		}
 		refresh();	
 	}
-	endwin();
-	return (arrow);
 }
 
 
 int	selection(int num, ...)//fonnction pour selectionner avec les fleches plutot qu'en tapan les choses
 {
 	va_list args;
-	char **frames;
+	int		i = 0;
+	char **frames = malloc(num * sizeof(char *));
 
 	va_start(args, num);
-
-	for(int i = 0; i < num; i++;) {
+	while (i < num)
+	{
 		frames[i] = va_arg(args, char *);
+		i++;
 	}
-	i = arrow_selection(frames);
 	va_end(args);
+	i = arrow_selection(frames, num);
+	free(frames);
 	return (i);
 }
 

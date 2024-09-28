@@ -2,7 +2,7 @@
 NAME	=	loot_armor
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -pthread -Iinclude -g
-CREAD	=	-lreadline
+CREAD	=	-lreadline -lncurses
 
 #-L/opt/homebrew/lib 
 #------------------------Source-----------------------------
@@ -38,6 +38,7 @@ FILES = main \
 		animations/win_animations \
 		animations/cactus_animations \
 		animations/spider_animations \
+		free_all \
 		tools
 
 

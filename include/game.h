@@ -8,6 +8,7 @@
 # include "signal.h"
 # include "stdio.h"
 # include "string.h"
+#include "ncurses.h"
 # include "readline/readline.h"
 # include "readline/history.h"
 # include "item.h"
@@ -126,13 +127,18 @@ void	fusion_item(t_hero *hero, int item);
 int choix_aleatoire_pondere(int elements[], int poids[], int taille);
 int *xp_changer_monster(t_hero *hero);
 int *xp_changer_item(t_hero *hero);
-int	selection(int num, ...)
+int	selection(int num, ...);
+
+/*-----------free------------*/
+void	free_double_char(char **str);
 
 /*----------init-------------*/
 void	init_hero(t_hero *info_hero);
 void	init_shop(t_shop *info_shop);
 void	init_monster(t_monster *info_monster);
 void	init_inventory(t_inventory *inventory);
+
+char	**setframe_main_menu(char **tab_frame);
 
 
 

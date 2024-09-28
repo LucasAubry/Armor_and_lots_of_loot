@@ -41,7 +41,9 @@ int	main(void)
 	t_item	*item = malloc(sizeof(t_item));
 	t_shop	*info_shop = malloc(sizeof(t_shop));
 
+	char		**tab_frame = NULL;
 	char		*line;
+	int			i = 0;
 
 	init_hero(info_hero);
 	init_monster(info_monster);
@@ -61,18 +63,18 @@ int	main(void)
 	{
 		print_choice();//shop, fight, save, quit
 
-		selection(5, f
+		tab_frame = setframe_main_menu(tab_frame);
+		i = selection(5, tab_frame[0], tab_frame[1], tab_frame[2], tab_frame[3], tab_frame[4]);
 
-		line = readline("> ");
-		if (atoi(line) == 1)
+		if (i == 0)
 			shop(info_shop, item, info_hero);
-		else if (atoi(line) == 2)
+		else if (i == 1)
 			fight(info_hero, info_monster, item, info_shop);
-		else if (atoi(line) == 3)
+		else if (i == 2)
 			save(info_hero, info_monster, info_player);
-		else if (atoi(line) == 4)
+		else if (i == 3)
 			profil_stats(info_hero);
-		else if (atoi(line) == 5)
+		else if (i == 4)
 		{
 			printf("au revoir\n");
 			free(line);
