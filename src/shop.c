@@ -90,7 +90,7 @@ void	select_item_inshop(t_item *item, t_shop *shop, t_hero *hero, int place_in_s
 	t_item_enum i = choix_aleatoire_pondere(element, poids, taille);
 	item_selected(item, shop, i, place_in_shop);//i cest l'id de litem
 	free(poids);
-}//le problemme cest que ici choix aleatoir returne 0 et aucun enum nest 0 donc il ne devrait pas retoruner 0
+}
 
 void	change_shop(t_item *item, t_shop *shop, t_hero *hero)
 {
@@ -105,11 +105,8 @@ void	change_shop(t_item *item, t_shop *shop, t_hero *hero)
 void	in_shop(t_shop *shop, t_item *item, t_hero *hero)
 {
 	print_shop(shop, hero);
-	char *line = readline("\n>");
-	if (!strcmp(line, "exit"))
+	if (!check_buying(shop, item, hero))
 		return ;
-	else
-		check_buying(shop, item, hero, line);
 }
 
 void	shop(t_shop *shop, t_item *item, t_hero *hero)

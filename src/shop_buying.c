@@ -62,44 +62,41 @@ void	put_in_inventory(t_item_stats *item, t_hero *hero)
         hero->inventory->item_5 = new_item;
 }
 
-void	buy_item(t_item_stats *item, t_hero *hero, t_shop *shop, int item_price)
+void	buy_item(t_item_stats *item, t_hero *hero, t_shop *shop, int item_price, int num_item)
 {
-	char *line;
-	line = readline("Are you sure you want to buy this item ?\n");
-	if (!strcmp(line, "no") || (!strcmp(line, "No")))
+	if (choice_buying(item))
 		return ;
 	hero->gold = hero->gold - item_price;
 	put_in_inventory(item, hero);
-	print_shop_bought(shop, item);
-	printf("gg you have a new items\n");
-	line = readline("");
+	print_shop_bought(shop, item, num_item);
+	//gg new item
 }
 
-void	check_buying(t_shop *shop_instance, t_item *item, t_hero *hero, char *line)
+int	check_buying(t_shop *shop_instance, t_item *item, t_hero *hero)
 {
-	if (strcmp(line, "Nothing"))
-	{
-		if (!strcmp(line, shop_instance->item_1->name))
+	int ch = getchr();
+
+		if (ch == '1' && strcmp(shop_instance->item_1->name, "Nothing"))
 		{
 			if (can_buying(hero, shop_instance->item_1->price))
-				buy_item(shop_instance->item_1, hero, shop_instance, shop_instance->item_1->price);
+				buy_item(shop_instance->item_1, hero, shop_instance, shop_instance->item_1->price, 1);
 		}
-		else if (!strcmp(line, shop_instance->item_2->name))
+		else if (ch == '2' && strcmp(shop_instance->item_2->name, "Nothing"))
 		{
 			if (can_buying(hero, shop_instance->item_2->price))
-				buy_item(shop_instance->item_2, hero, shop_instance, shop_instance->item_2->price);
+				buy_item(shop_instance->item_2, hero, shop_instance, shop_instance->item_2->price, 2);
 		}
-		else if (!strcmp(line, shop_instance->item_3->name))
+		else if (ch == '3' && strcmp(shop_instance->item_3->name, "Nothing"))
 		{
 			if (can_buying(hero, shop_instance->item_3->price))
-				buy_item(shop_instance->item_3, hero, shop_instance, shop_instance->item_3->price);
+				buy_item(shop_instance->item_3, hero, shop_instance, shop_instance->item_3->price, 3);
 		}
-		else if (!strcmp(line, shop_instance->item_4->name))
+		else if (ch == '4' && strcmp(shop_instance->item_4->name, "Nothing"))
 		{
 			if (can_buying(hero, shop_instance->item_4->price))
-				buy_item(shop_instance->item_4, hero, shop_instance, shop_instance->item_4->price);
+				buy_item(shop_instance->item_4, hero, shop_instance, shop_instance->item_4->price, 4);
 		}
-		else if (!strcmp(line, "restock") || (!strcmp(line, "Restock")))
+		else if (ch == '5')
 		{
 			if (hero->gold <= 4)
 				printf("you dont have money for this item\n\n\n");
@@ -109,8 +106,8 @@ void	check_buying(t_shop *shop_instance, t_item *item, t_hero *hero, char *line)
 				change_shop(item, shop_instance, hero);	
 			}
 		}
-	}
-	else
-		printf("this item is not in the shop\n");
-	in_shop(shop_instance, item, hero);
+		else if (ch == 127)
+			return (0);
+		in_shop(shop_instance, item, hero);
+		return (0);
 }

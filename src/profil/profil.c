@@ -141,24 +141,40 @@ void	equip_item(t_hero *hero, int item)
 	}
 }
 
-void	profil_stats(t_hero *hero)
+void profil_stats(t_hero *hero)
 {
-	printf("\033[H\033[J");
-	print_stats(hero);
-	print_profil(hero);
-	char *line = readline("select item\n > ");
-	if (hero->inventory->item_1->name && !strcmp(line, "1"))
-		select_option(hero, 1);	
-	else if (hero->inventory->item_2->name && !strcmp(line, "2"))
-		select_option(hero, 2);	
-	else if (hero->inventory->item_3->name && !strcmp(line, "3"))
-		select_option(hero, 3);	
-	else if (hero->inventory->item_4->name && !strcmp(line, "4"))
-		select_option(hero, 4);	
-	else if (hero->inventory->item_5->name && !strcmp(line, "5"))
-		select_option(hero, 5);	
-	else if (!strcmp(line, "exit"))
-		return;
-	else
-		profil_stats(hero);
+   	printf("\033[H\033[J");
+   	print_stats(hero);
+   	print_profil(hero);
+   	printf("Select item (1-5), or press Backspace to exit\n > ");
+
+   	int ch = getchr();
+
+   	switch(ch) {
+   	    case '1':
+   	        if (hero->inventory->item_1->name)
+   	            select_option(hero, 1);
+   	        break;
+   	    case '2':
+   	        if (hero->inventory->item_2->name)
+   	            select_option(hero, 2);
+   	        break;
+   	    case '3':
+   	        if (hero->inventory->item_3->name)
+   	            select_option(hero, 3);
+   	        break;
+   	    case '4':
+   	        if (hero->inventory->item_4->name)
+   	            select_option(hero, 4);
+   	        break;
+   	    case '5':
+   	        if (hero->inventory->item_5->name)
+   	            select_option(hero, 5);
+   	        break;
+   		case 127:
+			return ;
+   	    default:
+   			break;
+   	}
+	return ;
 }

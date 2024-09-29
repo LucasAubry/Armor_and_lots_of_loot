@@ -28,8 +28,8 @@ void	print_shop(t_shop *shop, t_hero *hero)
   		printf("\033[H\033[J");
 		print_stats(hero);
 	  //  printf("\n");
-		printf("         %-30s %s\n", shop->item_1->name, shop->item_2->name);
-		printf("            %d💰%28s%d💰\n", shop->item_1->price, "", shop->item_2->price);
+		printf("           [1]                            [2]\n");
+		printf("           %d💰%28s%d💰\n", shop->item_1->price, "", shop->item_2->price);
 		print_side_by_side(shop->logo_item_1, shop->logo_item_2);
 		printf("heal   : %d  hp   : %d           heal   : %d   hp   : %d\n"
 			   "attack : %d  armor   : %d        attack : %d   armor   : %d\n",
@@ -41,9 +41,9 @@ void	print_shop(t_shop *shop, t_hero *hero)
 		       shop->item_1->armor,
 		       shop->item_2->attack,
 		       shop->item_2->armor);
-		printf("									Restock\n							  		  5💰\n");
+		printf("									[5] RESTOCK\n							  		     5💰\n");
 		//printf("\n\n");	
-		printf("         %-30s %s\n", shop->item_3->name, shop->item_4->name);
+		printf("            [3]                            [4]\n");
 		printf("            %d💰%28s%d💰\n", shop->item_3->price, "", shop->item_4->price);
 		print_side_by_side(shop->logo_item_3, shop->logo_item_4);
 		printf("heal   : %d  hp   : %d           heal   : %d   hp   : %d\n"
@@ -58,8 +58,9 @@ void	print_shop(t_shop *shop, t_hero *hero)
 		       shop->item_4->armor);
 }
 
-void	print_shop_bought(t_shop *shop, t_item_stats *item)
+void	print_shop_bought(t_shop *shop, t_item_stats *item, int num_item)
 {
+	(void)item;
 	char *item_bought =
 	"__________________________\n"
 	"|\\ ____________________ /|\n"
@@ -79,7 +80,8 @@ void	print_shop_bought(t_shop *shop, t_item_stats *item)
 	"|/ -------------------- \\|\n"
 	" ------------------------ \n";
 
-	if (!strcmp(shop->item_1->name, item->name) && (strcmp(shop->item_1->name, "nothing")))
+	if (strcmp(shop->item_1->name, "Nothing") &&
+			num_item == 1)
 	{
 		shop->logo_item_1 = item_bought;
 		shop->item_1->name = "Nothing";
@@ -89,7 +91,8 @@ void	print_shop_bought(t_shop *shop, t_item_stats *item)
 		shop->item_1->attack = 0;
 		shop->item_1->armor = 0;
 	}
-	else if (!strcmp(shop->item_2->name, item->name))
+	else if (strcmp(shop->item_2->name, "Nothing") &&
+			num_item == 2)
 	{
 		shop->logo_item_2 = item_bought;
 		shop->item_2->name = "Nothing";
@@ -99,7 +102,8 @@ void	print_shop_bought(t_shop *shop, t_item_stats *item)
 		shop->item_2->attack = 0;
 		shop->item_2->armor = 0;
 	}
-	else if (!strcmp(shop->item_3->name, item->name))
+	else if (strcmp(shop->item_3->name, "Nothing") &&
+			num_item == 3)
 	{
 		shop->logo_item_3 = item_bought;
 		shop->item_3->name = "Nothing";
@@ -109,7 +113,8 @@ void	print_shop_bought(t_shop *shop, t_item_stats *item)
 		shop->item_3->attack = 0;
 		shop->item_3->armor = 0;
 	}
-	else if (!strcmp(shop->item_4->name, item->name))
+	else if (strcmp(shop->item_4->name, "Nothing") &&
+			num_item == 4)
 	{
 		shop->logo_item_4 = item_bought;
 		shop->item_4->name = "Nothing";

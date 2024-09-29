@@ -2,6 +2,24 @@
 #include <ncurses.h>
 #include <stdio.h>
 
+int getchr(void) {
+    struct termios oldattr, newattr;
+    int ch;
+    tcgetattr(STDIN_FILENO, &oldattr);
+    newattr = oldattr;
+    newattr.c_lflag &= ~(ICANON | ECHO); // desactiver l'affichage echo en gros
+    tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
+
+    while (1) {
+        ch = getchar();
+        if (ch == '1' || ch == '2' || ch == '3' ||
+				ch == '4' || ch == '5' || ch == 127 ||ch == 10)
+            break;
+    }
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldattr); // Restaurer les anciens paramètres
+    return ch;
+}
+
 int	arrow_selection(char **frames, int nombre_de_frames)
 {
 	int	ch;

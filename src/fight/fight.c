@@ -60,14 +60,9 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 	int		boucle = 1;
 	int		loose;
 
-	printf("\033[H\033[J");
-	print_bannier_fight();
-	line = readline("do you really want to leave the castle ?\n>");
-	if (!strcmp(line, "no") || (!strcmp(line, "No")))
-	{
-		free(line);
+	//printf("\033[H\033[J");
+	if (choice_fight_button())
 		return ;
-	}
 	while (boucle > 0)
 	{
 		boucle--;

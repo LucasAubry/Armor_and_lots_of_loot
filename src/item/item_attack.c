@@ -18,6 +18,7 @@ void	init_wood_sword(t_item *item)
 	
 	const char *logo =
 	"__________________________\n"
+	"||      WOODEN SWORD    ||\n"
 	"|\\ ____________________ /|\n"
 	"| | _                _ | |\n"
 	"| |(+)              (+)| |\n"
@@ -57,6 +58,7 @@ void	init_killer_book(t_item *item)
 	
 	const char *logo =
 	"__________________________\n"
+	"||      KILLER BOOK     ||\n"
 	"|\\ ____________________ /|\n"
 	"| | _        .       _ | |\n"
 	"| |(+)     '     .  (+)| |\n"

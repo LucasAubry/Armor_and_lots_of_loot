@@ -8,7 +8,8 @@
 # include "signal.h"
 # include "stdio.h"
 # include "string.h"
-#include "ncurses.h"
+# include "ncurses.h"
+# include <termios.h>
 # include "readline/readline.h"
 # include "readline/history.h"
 # include "item.h"
@@ -105,8 +106,8 @@ void	print_monster(t_monster_enum monster, int *tab, t_hero *info_hero);
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
 void	print_shop(t_shop *shop, t_hero *hero);
 void	print_bannier_fight(void);
-void	check_buying(t_shop *shop, t_item *item, t_hero *hero, char *line);
-void	print_shop_bought(t_shop *shop, t_item_stats *item);
+int		check_buying(t_shop *shop, t_item *item, t_hero *hero);
+void	print_shop_bought(t_shop *shop, t_item_stats *item, int num_item);
 void	change_shop(t_item *item, t_shop *shop, t_hero *hero);
 void	print_profil(t_hero *hero);
 void	profil_stats(t_hero *hero);
@@ -118,6 +119,7 @@ void	delet_stats(t_hero *hero, int i);
 void	copy_stats(t_hero *hero, t_item_stats *stats);
 void	fusion_item(t_hero *hero, int item);
 int		choice_shop_button(void);
+int		choice_fight_button(void);
 
 
 
@@ -129,6 +131,8 @@ int *xp_changer_item(t_hero *hero);
 int	arrow_selection(char **frames, int nombre_de_frames);
 int	selection(int num, ...);
 int	choice_equip(t_hero *hero, int item);
+int	choice_buying(t_item_stats *item);
+int getchr(void);
 
 /*------------selection------*/
 int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo);

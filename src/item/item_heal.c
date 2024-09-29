@@ -19,6 +19,7 @@ void	init_potion_heal(t_item *item)
 
     const char *logo =
 	"__________________________\n"
+	"||     HEALING POTION   ||\n"
 	"|\\ ____________________ /|\n"
 	"| | _                _ | |\n"
 	"| |(+)         O    (+)| |\n"
@@ -58,6 +59,7 @@ void	init_heal_flower(t_item *item)
 
     const char *logo =
 	"__________________________\n"
+	"||     HEALING FLOWER   ||\n"
 	"|\\ ____________________ /|\n"
 	"| | _                _ | |\n"
 	"| |(+)              (+)| |\n"

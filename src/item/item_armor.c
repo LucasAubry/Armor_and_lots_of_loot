@@ -18,6 +18,7 @@ void	init_wood_shield(t_item *item)
 
 	const char *logo =
 	"__________________________\n"
+	"||     WOODEN SHIELD    ||\n"
 	"|\\ ____________________ /|\n"
 	"| | _                _ | |\n"
 	"| |(+)              (+)| |\n"
