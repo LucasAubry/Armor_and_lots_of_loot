@@ -120,6 +120,8 @@ void	copy_stats(t_hero *hero, t_item_stats *stats);
 void	fusion_item(t_hero *hero, int item);
 int		choice_shop_button(void);
 int		choice_fight_button(void);
+int	choice_win_screen(void);
+int	choice_loose_screen(void);
 
 
 

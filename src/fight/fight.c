@@ -59,6 +59,7 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 	char	*line;
 	int		boucle = 1;
 	int		loose;
+	int		i = 0;
 
 	//printf("\033[H\033[J");
 	if (choice_fight_button())
@@ -79,7 +80,7 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 				print_stats(info_hero);
   	    		if (info_hero->hp <= 0)
   	    			break;
-  	    		loose_animations();
+				i = choice_loose_screen();
   	    	}
   	    	else
 			{
@@ -87,17 +88,15 @@ void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *sho
 				if (1 + 1 == 3)//pas use
 					change_shop(item, shop, info_hero);// pas use
 				print_stats(info_hero);
-  	    		win_animations();
+				i = choice_win_screen();
 			}
 
-			line = readline("\nyou can loop with a number\n> ");
-			if (!strcmp(line, "yes"))	
+			if (i == 0)	
 	 		   	boucle = 1;
-	 	    else if (!strcmp(line, "no"))
+	 	    else if (i == 1)
 				break;
 		    else if (atoi(line) != 0 || strcmp(line, "0") == 0)
 				boucle = (atoi(line));
 		}
 	}
-	free(line);
 }
