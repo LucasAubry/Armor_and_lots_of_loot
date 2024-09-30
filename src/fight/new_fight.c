@@ -64,14 +64,14 @@ int *choice_region_monster(int region)
 //		tab[SANTORE] = 0;
 //		tab[SPIDER] = 0;
 //	}
-//	if (region == )
-//	{
-//		tab[BEE] = 0;
-//		tab[WHALE] = 0;
-//		tab[CACTUS] = 0;
-//		tab[SANTORE] = 0;
-//		tab[SPIDER] = 0;
-//	}
+	if (region == OCEAN)
+	{
+		tab[BEE] = 0;
+		tab[WHALE] = 10;
+		tab[CACTUS] = 0;
+		tab[SANTORE] = 0;
+		tab[SPIDER] = 0;
+	}
 	if (region == DESERT)
 	{
 		tab[BEE] = 2;
@@ -151,7 +151,7 @@ t_monster_enum	monster_choice_region(t_monster *info_monster, int region)
 	return (monster);
 }
 
-void	fight_region(t_hero *info_hero, t_monster *info_monster,t_item *item,
+int	fight_region(t_hero *info_hero, t_monster *info_monster,t_item *item,
 		t_shop *shop, int region)
 {
 	t_monster_enum monster;
@@ -178,7 +178,8 @@ void	fight_region(t_hero *info_hero, t_monster *info_monster,t_item *item,
   	    	{
 				print_stats(info_hero);
   	    		if (info_hero->hp <= 0)
-  	    			break;
+					return (0);
+					//break;
 				i = choice_loose_screen();
   	    	}
   	    	else
@@ -198,40 +199,52 @@ void	fight_region(t_hero *info_hero, t_monster *info_monster,t_item *item,
 				boucle = (atoi(line));
 		}
 	}
+	return (1);
 }
 
-void	in_region(int position, int region, t_hero *hero, t_monster *monster,
-		t_item *item, t_shop *shop)
+void in_region(int position, int region, t_hero *hero, t_monster *monster,
+               t_item *item, t_shop *shop)
 {
-	if (region == DONJON)
-		position = background_tower(position);
-	else if (region == DESERT)
-		position = background_desert(position);
-	if (position == 2)// metre 3 en vriable pour changer a chaque region
-	{
-		//coffre
-		in_region(position, region, hero, monster, item, shop);
-	}
-	if (position == 7)// metre 8 en vriable pour changer a chaque region
-	{
-		fight_region(hero, monster, item, shop, region);
-		in_region(position, region, hero, monster, item, shop);
-		//fight
-		//sortie
-	}
-	else if (position == 10 || position == 0)
-		return;
-	else
-		in_region(position, region, hero, monster, item, shop);
+    while (1)
+    {
+        if (region == DONJON)
+            position = background_tower(position);
+        else if (region == DESERT)
+            position = background_desert(position);
+		else if (region == OCEAN)
+			position = background_ocean(position);
+
+        if (((region == DONJON || region == OCEAN) && position == 2) ||
+			   	(region == DESERT && (position == 3 || position == 7)))
+        {
+			//coffre
+            continue;
+        }
+        else if ((region == DONJON && position == 7) || (region == DESERT && position == 1) ||
+			   (region == OCEAN && position >= 7 && position <= 10)) // Condition pour le combat
+        {
+            if (fight_region(hero, monster, item, shop, region) == 0)
+				return ;
+            continue;
+        }
+        else if (position == 0) 
+		{
+			// Sortie
+            break;
+        }
+    }
 }
+
 
 int	select_region()
 {
 	int i = choice_region();
 	if (i == 0)
 		return (DONJON);
-	else
+	else if (i == 1)
 		return (DESERT);
+	else
+		return (OCEAN);
 }
 
 void	fight(t_hero *hero, t_monster *monster, t_item *item, t_shop *shop)

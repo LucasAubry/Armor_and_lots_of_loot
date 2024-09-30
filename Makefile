@@ -43,6 +43,7 @@ FILES = main \
 		fight/new_fight \
 		fight/frames_background/dongon \
 		fight/frames_background/desert \
+		fight/frames_background/ocean \
 		selection/selection \
 		selection/selection_with_variable \
 		selection/selection_position \

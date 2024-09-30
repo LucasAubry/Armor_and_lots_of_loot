@@ -266,7 +266,8 @@ int	background_tower(int position)
 "-~--~                   ~---__ ,--~'                  ~~----_____-~'   /~\\---~~\n"
 "                                                                               \n"
 "                                                                               \n"
-"                                                                               \n";	int i = selection_position(position, 11, tower_f1, tower_f2, tower_f3,
+"                                                                               \n";
+	int i = selection_position(position, 11, tower_f1, tower_f2, tower_f3,
 			tower_f4, tower_f5, tower_f6, tower_f7, tower_f8,
 			tower_f9, tower_f10, tower_f11);
 	return (i);

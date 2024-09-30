@@ -7,10 +7,12 @@ void	print_profil(t_hero *hero)
 	char	*copy_item_3 = NULL;
 	char	*copy_item_4 = NULL;
 	char	*copy_item_5 = NULL;
+
 	if (hero->inventory->item_1->name == NULL)
 		copy_item_1 = "Nothing";
 	else
 		copy_item_1 = hero->inventory->item_1->name;
+
 	if (hero->inventory->item_2->name == NULL)
 		copy_item_2 = "Nothing";
 	else
@@ -28,7 +30,7 @@ void	print_profil(t_hero *hero)
 	else
 		copy_item_5 = hero->inventory->item_5->name;
 
-		char *inventory =
+	char *inventory =
 		"           	                                    \n"	
 		"|=================================================|\n"
 		"|                    INVENTORY                    |\n"

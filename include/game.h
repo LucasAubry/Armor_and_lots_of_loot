@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: laubry <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/30 22:35:27 by laubry            #+#    #+#             */
+/*   Updated: 2024/09/30 22:35:28 by laubry           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GAME_H
 # define GAME_H
 
@@ -31,6 +43,7 @@ typedef enum s_region_enum
 {
 	DONJON,
 	DESERT,
+	OCEAN,
 } t_region_enum;
 /* ========== STRUCTURE ============= */
 
@@ -156,6 +169,7 @@ void	fight(t_hero *hero, t_monster *monster, t_item *item, t_shop *shop);
 /*---------background-------*/
 int	background_tower(int position);
 int	background_desert(int position);
+int	background_ocean(int position);
 
 
 
