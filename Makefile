@@ -40,7 +40,12 @@ FILES = main \
 		animations/cactus_animations \
 		animations/spider_animations \
 		free_all \
-		selection \
+		fight/new_fight \
+		fight/frames_background/dongon \
+		fight/frames_background/desert \
+		selection/selection \
+		selection/selection_with_variable \
+		selection/selection_position \
 		tools
 
 
@@ -63,8 +68,10 @@ obj:
 	mkdir -p obj/print
 	mkdir -p obj/animations
 	mkdir -p obj/fight
+	mkdir -p obj/fight/frames_background
 	mkdir -p obj/item
 	mkdir -p obj/profil
+	mkdir -p obj/selection
 
 .c.o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(CREAD)

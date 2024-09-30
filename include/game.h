@@ -27,6 +27,11 @@ typedef enum s_monster_enum
 	SPIDER,
 } t_monster_enum;
 
+typedef enum s_region_enum
+{
+	DONJON,
+	DESERT,
+} t_region_enum;
 /* ========== STRUCTURE ============= */
 
 typedef struct s_inventory
@@ -89,8 +94,6 @@ typedef struct s_shop
 /* ========== FONCTION ============= */
 
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
-void	fight(t_hero *info_hero, t_monster *info_monster, t_item *item, t_shop *shop);
-
 void	shop(t_shop *info_shop, t_item *item, t_hero *hero);
 
 void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
@@ -98,9 +101,9 @@ void	print_stats(t_hero *info_hero);
 void	print_gamestart(void);
 void	print_choice(void);
 void	print_you_die(void);
-t_monster_enum	monster_choice(t_monster *info_monster, t_hero *hero);
-void	loose_animations(void);
-void	win_animations(void);
+//t_monster_enum	monster_choice(t_monster *info_monster, t_hero *hero);
+//void	loose_animations(void);
+//void	win_animations(void);
 void	print_animation(const char *frames[], int num_frames, int *tab, t_hero *info_hero);
 void	print_monster(t_monster_enum monster, int *tab, t_hero *info_hero);
 void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster);
@@ -139,6 +142,25 @@ int getchr(void);
 /*------------selection------*/
 int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo);
 int	selection_logo(char *logo, int num, ...);
+int	selection_position(int position, int num, ...);
+int	choice_region(void);
+
+
+
+
+
+/*------------fight-----------*/
+void	fight(t_hero *hero, t_monster *monster, t_item *item, t_shop *shop);
+
+
+/*---------background-------*/
+int	background_tower(int position);
+int	background_desert(int position);
+
+
+
+
+
 
 
 /*-----------free------------*/

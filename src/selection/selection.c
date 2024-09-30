@@ -1,11 +1,10 @@
 #include "game.h"
 
-int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo)
+int	arrow_selection(char **frames, int nombre_de_frames)
 {
 	int	ch;
 	int	modif = 0;
 	int	arrow = 0;
-	char buffer[1024];
 	nombre_de_frames--;
 
 	initscr();
@@ -13,9 +12,8 @@ int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo)
 	clear();
 	keypad(stdscr, TRUE);
 	refresh();
-	snprintf(buffer, sizeof(buffer), frames[arrow], logo);
-	mvprintw(0, 0, "%s", buffer);
-	
+
+	mvprintw(0, 0, "%s", frames[arrow]);
 	while (1)
 	{
 		ch = getch();
@@ -36,11 +34,11 @@ int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo)
 				modif = 1;
 				break;
 			case KEY_RIGHT:
-				arrow += 1;
+				arrow +=1;
 				if (arrow > nombre_de_frames) arrow = 0;
 				modif = 1;
 				break;
-			case '\n':
+			case '\n': // touche entrer
 				endwin();
 				return (arrow);
 			default:
@@ -49,16 +47,14 @@ int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo)
 		}
 		if (modif == 1)
 		{
-			clear();
-			snprintf(buffer, sizeof(buffer), frames[arrow], logo);
-			mvprintw(0, 0, "%s", buffer);
+			mvprintw(0, 0, "%s", frames[arrow]);
 			modif = 0;
 		}
 		refresh();	
 	}
 }
 
-int	selection_logo(char *logo, int num, ...)//fonnction pour selectionner avec les fleches plutot qu'en tapan les choses
+int	selection(int num, ...)//fonnction pour selectionner avec les fleches plutot qu'en tapan les choses
 {
 	va_list args;
 	int		i = 0;
@@ -71,14 +67,13 @@ int	selection_logo(char *logo, int num, ...)//fonnction pour selectionner avec l
 		i++;
 	}
 	va_end(args);
-	i = arrow_selection_logo(frames, num, logo);
+	i = arrow_selection(frames, num);
 	free(frames);
 	return (i);
 }
 
 
-
-
+/*---------------selection complexe------------*/
 
 //int	arrow_selection_stats(char **frames, int nombre_de_frames, t_hero *hero)
 //{

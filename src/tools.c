@@ -20,79 +20,6 @@ int getchr(void) {
     return ch;
 }
 
-int	arrow_selection(char **frames, int nombre_de_frames)
-{
-	int	ch;
-	int	modif = 0;
-	int	arrow = 0;
-	nombre_de_frames--;
-
-	initscr();
-	raw();
-	clear();
-	keypad(stdscr, TRUE);
-	refresh();
-
-	mvprintw(0, 0, "%s", frames[arrow]);
-	while (1)
-	{
-		ch = getch();
-		switch (ch) {
-			case KEY_UP:
-				arrow -= 1;
-				if (arrow < 0) arrow = nombre_de_frames;
-				modif = 1;
-				break;
-			case KEY_DOWN:
-				arrow += 1;
-				if (arrow > nombre_de_frames) arrow = 0;
-				modif = 1;
-				break;
-			case KEY_LEFT:
-				arrow -= 1;
-				if (arrow < 0) arrow = nombre_de_frames;
-				modif = 1;
-				break;
-			case KEY_RIGHT:
-				arrow +=1;
-				if (arrow > nombre_de_frames) arrow = 0;
-				modif = 1;
-				break;
-			case '\n': // touche entrer
-				endwin();
-				return (arrow);
-			default:
-				modif = 0;
-				break;
-		}
-		if (modif == 1)
-		{
-			mvprintw(0, 0, "%s", frames[arrow]);
-			modif = 0;
-		}
-		refresh();	
-	}
-}
-
-
-int	selection(int num, ...)//fonnction pour selectionner avec les fleches plutot qu'en tapan les choses
-{
-	va_list args;
-	int		i = 0;
-	char **frames = malloc(num * sizeof(char *));
-
-	va_start(args, num);
-	while (i < num)
-	{
-		frames[i] = va_arg(args, char *);
-		i++;
-	}
-	va_end(args);
-	i = arrow_selection(frames, num);
-	free(frames);
-	return (i);
-}
-
 int choix_aleatoire_pondere(int elements[], int poids[], int taille)
 {
     int i = 0;
@@ -121,44 +48,44 @@ int choix_aleatoire_pondere(int elements[], int poids[], int taille)
 
 //-------------------------XP CHNAGER----------------------
 
-int *xp_changer_monster(t_hero *hero)
-{
-	int *tab = (int *)malloc(5 * sizeof(int));
-	memset(tab, 0, 5 * sizeof(int));
-	if (hero->xp >= 40)
-	{
-		tab[BEE] = 1;
-		tab[WHALE] = 2;
-		tab[CACTUS] = 3;
-		tab[SANTORE] = 9;
-		tab[SPIDER] = 4;
-	}
-	if (hero->xp <= 35)
-	{
-		tab[BEE] = 2;
-		tab[WHALE] = 4;
-		tab[CACTUS] = 7;
-		tab[SANTORE] = 1;
-		tab[SPIDER] = 6;
-	}
-	if (hero->xp <= 10)
-	{
-		tab[BEE] = 7;
-		tab[WHALE] = 5;
-		tab[CACTUS] = 1;
-		tab[SANTORE] = 0;
-		tab[SPIDER] = 2;
-	}
-	if (hero->xp <= 3)
-	{
-		tab[BEE] = 9;
-		tab[WHALE] = 3;
-		tab[CACTUS] = 1;
-		tab[SANTORE] = 0;
-		tab[SPIDER] = 2;
-	}
-	return (tab);
-}
+//int *xp_changer_monster(t_hero *hero)
+//{
+//	int *tab = (int *)malloc(5 * sizeof(int));
+//	memset(tab, 0, 5 * sizeof(int));
+//	if (hero->xp >= 40)
+//	{
+//		tab[BEE] = 1;
+//		tab[WHALE] = 2;
+//		tab[CACTUS] = 3;
+//		tab[SANTORE] = 9;
+//		tab[SPIDER] = 4;
+//	}
+//	if (hero->xp <= 35)
+//	{
+//		tab[BEE] = 2;
+//		tab[WHALE] = 4;
+//		tab[CACTUS] = 7;
+//		tab[SANTORE] = 1;
+//		tab[SPIDER] = 6;
+//	}
+//	if (hero->xp <= 10)
+//	{
+//		tab[BEE] = 7;
+//		tab[WHALE] = 5;
+//		tab[CACTUS] = 1;
+//		tab[SANTORE] = 0;
+//		tab[SPIDER] = 2;
+//	}
+//	if (hero->xp <= 3)
+//	{
+//		tab[BEE] = 9;
+//		tab[WHALE] = 3;
+//		tab[CACTUS] = 1;
+//		tab[SANTORE] = 0;
+//		tab[SPIDER] = 2;
+//	}
+//	return (tab);
+//}
 
 int *xp_changer_item(t_hero *hero)
 {
