@@ -42,12 +42,16 @@ void	init_inventory(t_inventory *inventory)
 
 void	init_hero(t_hero *info_hero)
 {
+	info_hero->chest[0] = 0;//peut poser problemme avec le itn * dans le .h
+	info_hero->chest[1] = 0;
+	info_hero->chest[2] = 0;
 	info_hero->xp = 0;
 	info_hero->hp = 5;
 	info_hero->hp_max = 5;
 	info_hero->gold = 1;
 	info_hero->attack = 1;
 	info_hero->armor = 0;
+
 
 	info_hero->inventory = malloc(sizeof(t_inventory));
 	init_inventory(info_hero->inventory);

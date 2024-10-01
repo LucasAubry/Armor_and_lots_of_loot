@@ -32,6 +32,7 @@ FILES = main \
 		print/print_you_die \
 		print/print_shop \
 		print/choice \
+		print/print_chest \
 		animations/santore_animations \
         animations/whale_animations \
         animations/bee_animations \
@@ -40,6 +41,7 @@ FILES = main \
 		animations/cactus_animations \
 		animations/spider_animations \
 		free_all \
+		fight/chest \
 		fight/new_fight \
 		fight/frames_background/dongon \
 		fight/frames_background/desert \

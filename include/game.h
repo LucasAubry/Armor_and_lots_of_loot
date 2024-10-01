@@ -6,7 +6,7 @@
 /*   By: laubry <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:35:27 by laubry            #+#    #+#             */
-/*   Updated: 2024/09/30 22:35:28 by laubry           ###   ########.fr       */
+/*   Updated: 2024/10/01 18:43:40 by laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ typedef struct s_hero
 	int				hp;
 	int				gold;
 	int				attack;
-	int				armor;
+	int				armor;	
+	int				chest[3];//la source du problemme
+
 	t_inventory		*inventory;
 }	t_hero;
 
@@ -136,10 +138,15 @@ void	copy_stats(t_hero *hero, t_item_stats *stats);
 void	fusion_item(t_hero *hero, int item);
 int		choice_shop_button(void);
 int		choice_fight_button(void);
-int	choice_win_screen(void);
-int	choice_loose_screen(void);
+int		choice_win_screen(void);
+int		choice_loose_screen(void);
 
-
+//fight
+t_monster_enum	monster_choice_region(t_monster *info_monster, int region);
+int		fight_region(t_hero *info_hero, t_monster *info_monster,t_item *item, t_shop *shop, int region);
+int		selection_chest(int num, ...);
+int	print_chest(void);
+void	open_chest(int region, t_hero *hero);
 
 
 /*-----------tools-----------*/
