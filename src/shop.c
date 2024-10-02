@@ -113,7 +113,10 @@ void	shop(t_shop *shop, t_item *item, t_hero *hero)
 {
   	printf("\033[H\033[J");
 	int i = choice_shop_button();
-	if (i == 1)
+	if (i == 0)
+		in_shop(shop, item, hero);
+	else if (i == 1)
+		library(shop, hero);
+	else
 		return ;
-	in_shop(shop, item, hero);
 }

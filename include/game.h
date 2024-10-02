@@ -6,7 +6,7 @@
 /*   By: laubry <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:35:27 by laubry            #+#    #+#             */
-/*   Updated: 2024/10/02 02:10:32 by laubry           ###   ########.fr       */
+/*   Updated: 2024/10/02 19:39:27 by laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ typedef struct s_shop
 void	reset_stats(t_hero *info_hero, t_monster *info_monster);
 void	shop(t_shop *info_shop, t_item *item, t_hero *hero);
 
-void	save(t_hero *info_hero, t_monster *info_monster, t_player *info_player);
 void	print_stats(t_hero *info_hero);
 void	print_gamestart(void);
 void	print_choice(void);
@@ -171,6 +170,10 @@ int	selection_logo(char *logo, int num, ...);
 int	selection_position(int position, int num, ...);
 int	choice_region(t_hero *hero, int unlock);
 
+void library(t_shop *shop, t_hero *hero);
+int	print_library(void);
+int buy_book(int book, int prix);
+int selection_book(int num, int var1, ...);
 
 
 
@@ -185,6 +188,8 @@ int	background_desert(int position);
 int	background_ocean(int position);
 
 
+void save(t_hero *hero, const char *filename);
+void load(t_hero *hero, const char *filename);
 
 
 

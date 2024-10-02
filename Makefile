@@ -2,7 +2,7 @@
 NAME	=	loot_armor
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -pthread -Iinclude -g
-CREAD	=	-lreadline -lncurses
+CREAD	=	-lreadline -lncursesw
 
 #-L/opt/homebrew/lib 
 #------------------------Source-----------------------------
@@ -18,6 +18,7 @@ FILES = main \
 		fight/monster \
 		shop \
 		shop_buying \
+		library \
 		item/item \
 		item/item_attack \
 		item/item_armor \
@@ -33,6 +34,7 @@ FILES = main \
 		print/print_shop \
 		print/choice \
 		print/print_chest \
+		print/print_library \
 		animations/santore_animations \
         animations/whale_animations \
         animations/bee_animations \

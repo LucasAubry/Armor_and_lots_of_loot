@@ -1,13 +1,13 @@
 #include "game.h"
 
-int	select_save(int	line, t_player *info_player)
+int	select_save(int	line, t_hero *hero)
 {
 	if (line == 1)
-		info_player->save = 1;
+		load(hero, "save_1");
 	else if (line == 2)
-		info_player->save = 2;
+		load(hero, "save_2");
 	else if (line == 3)
-		info_player->save = 3;
+		load(hero, "save_3");
 	else
 	{
 		printf("save invalide");
@@ -37,7 +37,6 @@ int	main(void)
 	srand(time(NULL));
 	t_hero *info_hero = malloc(sizeof(t_hero));
     t_monster *info_monster = malloc(sizeof(t_monster));
-    t_player *info_player = malloc(sizeof(t_player));
 	t_item	*item = malloc(sizeof(t_item));
 	t_shop	*info_shop = malloc(sizeof(t_shop));
 
@@ -54,7 +53,7 @@ int	main(void)
 	print_gamestart();
 	print_save();
 	line = readline("select your save> ");
-	if (!select_save(atoi(line), info_player))
+	if (!select_save(atoi(line), info_hero))
 	{
 		free(line);
 		return (0);
@@ -71,7 +70,15 @@ int	main(void)
 		else if (i == 1)
 			fight(info_hero, info_monster, item, info_shop);
 		else if (i == 2)
-			save(info_hero, info_monster, info_player);
+		{
+			line = readline("select your save\n -save 1\n-save 2\n-save 3\n");
+			if (!strcmp(line, "save 1"))
+				save(info_hero, "save_1");
+			else if (!strcmp(line, "save 2"))
+				save(info_hero, "save_2");
+			else if (!strcmp(line, "save_3"))
+				save(info_hero, "save_3");
+		}
 		else if (i == 3)
 			profil_stats(info_hero);
 		else if (i == 4)

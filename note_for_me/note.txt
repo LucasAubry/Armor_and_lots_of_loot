@@ -1,8 +1,6 @@
-note pour moi :
+a save :
 
-id des items :
+structure t_hero (avec inventory aussi) donc stats ex...
+s_shop (pas sur)
 
-wood_sword = 1;
-wood_shield = 2;
-potion_heal = 3;
-low_heart = 4;
+

@@ -145,6 +145,7 @@ void profil_stats(t_hero *hero)
 {
    	printf("\033[H\033[J");
    	print_stats(hero);
+	//print_hero
    	print_profil(hero);
    	printf("Select item (1-5), or press Backspace to exit\n > ");
 

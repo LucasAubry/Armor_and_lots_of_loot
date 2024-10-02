@@ -159,6 +159,85 @@ int selection_var(int num, int var1, int var2, ...)
 }
 
 
+/////////book///////////
+
+int arrow_selection_book(char **frames, int nombre_de_frames, int var1)
+{
+    int ch;
+    int modif = 0;
+    int arrow = 0;
+    nombre_de_frames--;
+
+    char buffer[4096];
+
+    initscr();
+    raw();
+    clear();
+    keypad(stdscr, TRUE);
+    refresh();
+
+	snprintf(buffer, sizeof(buffer), frames[arrow], var1);
+    mvprintw(0, 0, "%s", buffer);
+    while (1)
+    {
+        ch = getch();
+        switch (ch) {
+            case KEY_UP:
+                arrow -= 1;
+                if (arrow < 0) arrow = nombre_de_frames;
+                modif = 1;
+                break;
+            case KEY_DOWN:
+                arrow += 1;
+                if (arrow > nombre_de_frames) arrow = 0;
+                modif = 1;
+                break;
+            case KEY_LEFT:
+                arrow -= 1;
+                if (arrow < 0) arrow = nombre_de_frames;
+                modif = 1;
+                break;
+            case KEY_RIGHT:
+                arrow += 1;
+                if (arrow > nombre_de_frames) arrow = 0;
+                modif = 1;
+                break;
+            case '\n':
+                endwin();
+                return arrow;
+            default:
+                modif = 0;
+                break;
+        }
+        if (modif == 1)
+        {
+            clear();
+			snprintf(buffer, sizeof(buffer), frames[arrow], var1);
+            mvprintw(0, 0, "%s", buffer);
+            modif = 0;
+        }
+        refresh();
+    }
+}
+
+int selection_book(int num, int var1, ...)
+{
+    va_list args;
+    int i = 0;
+    char **frames = malloc(num * sizeof(char *));
+
+    va_start(args, var1);  // var2 est le dernier argument fixe
+    while (i < num)
+    {
+        frames[i] = va_arg(args, char *);
+        i++;
+    }
+    va_end(args);
+    i = arrow_selection_book(frames, num, var1);
+    free(frames);
+    return i;
+}
+
 
 
 
