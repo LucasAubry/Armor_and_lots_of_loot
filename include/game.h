@@ -6,7 +6,7 @@
 /*   By: laubry <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:35:27 by laubry            #+#    #+#             */
-/*   Updated: 2024/10/01 18:43:40 by laubry           ###   ########.fr       */
+/*   Updated: 2024/10/02 02:10:32 by laubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,17 @@ typedef	struct s_player
 
 typedef struct s_hero
 {
+	int				chest[3];//la source du problemme
 	int				xp;
 	int				hp_max;
 	int				hp;
 	int				gold;
 	int				attack;
 	int				armor;	
-	int				chest[3];//la source du problemme
+//----montser_killed----------
+	int				donjon_kill;
+	int				desert_kill;
+	int				ocean_kill;
 
 	t_inventory		*inventory;
 }	t_hero;
@@ -155,6 +159,8 @@ int *xp_changer_monster(t_hero *hero);
 int *xp_changer_item(t_hero *hero);
 int	arrow_selection(char **frames, int nombre_de_frames);
 int	selection(int num, ...);
+int selection_var(int num, int var1, int var2, ...);
+
 int	choice_equip(t_hero *hero, int item);
 int	choice_buying(t_item_stats *item);
 int getchr(void);
@@ -163,7 +169,7 @@ int getchr(void);
 int arrow_selection_logo(char **frames, int nombre_de_frames, char *logo);
 int	selection_logo(char *logo, int num, ...);
 int	selection_position(int position, int num, ...);
-int	choice_region(void);
+int	choice_region(t_hero *hero, int unlock);
 
 
 

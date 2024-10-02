@@ -11,12 +11,12 @@ void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster)
 	{
 		if (monster == BEE || monster == WHALE)
 		{
-			info_hero->gold += 2;
+			info_hero->gold += 1;
 			info_hero->xp += 1;
 		}
 		else if (monster == CACTUS)
 		{
-			info_hero->gold += 4;
+			info_hero->gold += 3;
 			info_hero->xp += 3;
 		}
 		else if (monster == SANTORE)
@@ -26,7 +26,7 @@ void	gain_calcul(t_hero *info_hero, int *tab, t_monster_enum monster)
 		}
 		else if (monster == SPIDER)
 		{
-			info_hero->gold += 3;
+			info_hero->gold += 2;
 			info_hero->xp += 2;
 		}
 	}
@@ -73,6 +73,12 @@ int	fight_region(t_hero *info_hero, t_monster *info_monster,t_item *item,
   	    gain_calcul(info_hero, tab, monster);
 		printf("\033[H\033[J"); //clear screan
 
+		if (region == DONJON)
+			info_hero->donjon_kill += 1;
+		else if (region == DESERT)
+			info_hero->desert_kill += 1;
+		else if (region == OCEAN)
+			info_hero->ocean_kill += 1;
 		if (boucle == 0 || loose == 1)
 		{
   	    	if (tab[0] == 0) // loose one fight

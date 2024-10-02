@@ -37,7 +37,7 @@ void print_animation(const char *frames[], int num_frames, int *tab, t_hero *inf
     		printf("\033[J");
  			printf("\033[10;0H");
             printf("%s", frames[j]);
-            usleep(400000);
+            usleep(300000);
         }
     }
 }

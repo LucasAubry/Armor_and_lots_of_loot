@@ -15,6 +15,8 @@ void	merge_stats(t_item_stats *dest, t_item_stats *src)
 int	check_equiped(t_hero *hero, char *main_item, char *fusion_item, 
 		t_item_stats *dest, t_item_stats *src)
 {
+	if (src->name == NULL)
+		return (0);
 	if (!strcmp(dest->name, src->name))
 	{
 		if (!strcmp(main_item, "❌") && !strcmp(fusion_item, "❌"))

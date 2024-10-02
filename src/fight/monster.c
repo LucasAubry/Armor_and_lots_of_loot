@@ -33,8 +33,8 @@ int *choice_region_monster(int region)
 		tab[BEE] = 9;
 		tab[WHALE] = 0;
 		tab[CACTUS] = 0;
-		tab[SANTORE] = 1;
-		tab[SPIDER] = 3;
+		tab[SANTORE] = 0;
+		tab[SPIDER] = 2;
 	}
 	return (tab);
 }

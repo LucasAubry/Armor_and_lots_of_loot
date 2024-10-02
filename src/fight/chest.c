@@ -71,7 +71,7 @@ int	in_chest(char **frames, int num_frames)
 		}
 		// passer a la frame suivante
 		arrow = (arrow + 1) % num_frames;
-		usleep(delay * 500);
+		usleep(delay * 400);
 	}
 }
 	

@@ -8,7 +8,7 @@ void	init_wood_sword(t_item *item)
 
 	item->attack->wood_sword->stats->healing = 0;	
 	item->attack->wood_sword->stats->hp = 0;	
-	item->attack->wood_sword->stats->attack = 3;	
+	item->attack->wood_sword->stats->attack = 1;	
 	item->attack->wood_sword->stats->armor = 0;	
 	item->attack->wood_sword->stats->name = "wood sword";
 	item->attack->wood_sword->stats->price = 3;
@@ -48,10 +48,10 @@ void	init_killer_book(t_item *item)
 
 	item->attack->killer_book->stats->healing = 0;
 	item->attack->killer_book->stats->hp = 0;
-	item->attack->killer_book->stats->attack = 10;
+	item->attack->killer_book->stats->attack = 4;
 	item->attack->killer_book->stats->armor = 0;
 	item->attack->killer_book->stats->name = "killer book";
-	item->attack->killer_book->stats->price = 9;
+	item->attack->killer_book->stats->price = 10;
 	item->attack->killer_book->stats->number = 1;
 	item->attack->killer_book->id = 4;
 	item->attack->killer_book->stats->consummable = 0;

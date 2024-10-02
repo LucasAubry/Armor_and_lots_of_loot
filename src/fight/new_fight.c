@@ -21,8 +21,8 @@ void in_region(int position, int region, t_hero *hero, t_monster *monster,
         else if ((region == DONJON && position == 7) || (region == DESERT && position == 1) ||
 			   (region == OCEAN && position >= 7 && position <= 10)) // Condition pour le combat
         {
-            if (fight_region(hero, monster, item, shop, region) == 0)
-				return ;
+		if (fight_region(hero, monster, item, shop, region) == 0)
+			return ;
             continue;
         }
         else if (position == 0) 
@@ -33,15 +33,27 @@ void in_region(int position, int region, t_hero *hero, t_monster *monster,
     }
 }
 
-int	select_region()
+int	select_region(t_hero *hero)
 {
-	int i = choice_region();
-	if (i == 0)
-		return (DONJON);
-	else if (i == 1)
-		return (DESERT);
-	else
-		return (OCEAN);
+	int i = 0;
+	int	unlock = 0;
+	if (hero->donjon_kill >= 10)
+		unlock = 1;
+	if (hero->desert_kill >= 20)
+		unlock = 2;
+	if (hero->ocean_kill >= 30)
+		unlock = 3;
+
+	while (1)
+	{
+		i = choice_region(hero, unlock);
+		if (i == 0)
+			return (DONJON);
+		else if (i == 1 && unlock == 2)
+			return (DESERT);
+		else if (unlock == 3)
+			return (OCEAN);
+	}
 }
 
 void	fight(t_hero *hero, t_monster *monster, t_item *item, t_shop *shop)
@@ -50,6 +62,6 @@ void	fight(t_hero *hero, t_monster *monster, t_item *item, t_shop *shop)
 
 	if (choice_fight_button())
 		return ;
-	region = select_region();//a faire
+	region = select_region(hero);
 	in_region(0, region, hero, monster, item, shop);
 }

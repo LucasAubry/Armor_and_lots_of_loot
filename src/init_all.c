@@ -51,6 +51,9 @@ void	init_hero(t_hero *info_hero)
 	info_hero->gold = 1;
 	info_hero->attack = 1;
 	info_hero->armor = 0;
+	info_hero->donjon_kill = 0;
+	info_hero->desert_kill = 0;
+	info_hero->ocean_kill = 0;
 
 
 	info_hero->inventory = malloc(sizeof(t_inventory));
